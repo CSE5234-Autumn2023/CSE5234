@@ -1,2 +1,2 @@
 # Project Overview
-This is a enterprise web project
+This is an enterprise web project.
