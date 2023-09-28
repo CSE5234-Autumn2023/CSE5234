@@ -9,6 +9,8 @@ const viewConfirmation = () => {
             <h1>
                 {title}
             </h1>
+
+            <h2>Thank you for placing your order. Your confirmation code is 00000001</h2>
         </div>
     )
 }
