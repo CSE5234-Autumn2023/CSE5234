@@ -1,7 +1,11 @@
 .product {
-    margin: 40px 20px;
+    margin: 20px 0px 50px;
+}
+
+.product-list {
+    text-align: center;
 }
 
 .pay {
-    margin: 0px 0px 40px 0px;
+    margin-bottom: 50px;
 }

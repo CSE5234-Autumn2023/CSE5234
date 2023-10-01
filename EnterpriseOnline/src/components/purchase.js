@@ -1,10 +1,10 @@
 import React from "react"
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
-import Footer from './footer'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import mock_products from "../data/mock_products.json";
-import Product from "./product"
+import Product from "./product";
 import "./styles/purchase.css";
+import Footer from './footer'
 
 const Purchase = () => {
     const [order, setOrder] = useState({
@@ -16,21 +16,25 @@ const Purchase = () => {
     const handleSubmit = (e) => {
         navigate('/purchase/paymentEntry', { state: { order } });
     }
-    console.log('order: ', order);
 
     return (
-        <div class="product-list offset-md-2 col-md-8">
-            {
-                mock_products.map((product, index) => {
+        <div>
+            <main>
+                <div className="product-list offset-md-2 col-md-8">
+                    {
+                        mock_products.map((product, index) => {
 
-                    return(
-                        <div className="product">
-                            <Product product={product} order={order} index={index}/>
-                        </div>
-                    )
-                })
-            }
-            <button onClick={handleSubmit} className='button pay'>Pay</button>
+                            return (
+                                <div className="product">
+                                    <Product product={product} order={order} index={index} />
+                                </div>
+                            )
+                        })
+                    }
+                    <button onClick={handleSubmit} className='button pay'>Pay</button>
+                </div>
+            </main>
+            
             <Footer />
         </div>
     )
