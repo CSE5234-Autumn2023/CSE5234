@@ -23,11 +23,15 @@ const ViewOrder = () => {
                 </h1>
 
                 <h2>Products</h2>
-                <p>
-                    product 1: {initialOrder.buyQuantity[0]}
-                </p><p>
-                    product 2: {initialOrder.buyQuantity[1]}
-                </p>
+
+                {
+                    initialOrder.buyQuantity.map((buyQuantity, index) => {
+
+                        return (
+                            <p>Product {index+1}: {buyQuantity}</p>
+                        )
+                    })
+                }
 
                 <h2>Payment Information</h2>
                 <p>
