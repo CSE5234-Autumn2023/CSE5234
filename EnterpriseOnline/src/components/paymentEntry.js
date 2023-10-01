@@ -1,10 +1,10 @@
 import React, { useState } from "react"
-import {useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Footer from './footer'
 
 const PaymentEntry = () => {
     let location = useLocation();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const initialOrder = location.state.order;
     const [order, setOrder] = useState(initialOrder)
@@ -18,46 +18,49 @@ const PaymentEntry = () => {
     return (
         <div>
             <main>
-                <h1>
-                    product 1: {order.buyQuantity[0]}
-                </h1><h1>
-                    product 2: {order.buyQuantity[1]}
-                </h1>
+                {
+                    order.buyQuantity.map((buyQuantity, index) => {
+
+                        return (
+                            <h1>Product {index+1}: {buyQuantity}</h1>
+                        )
+                    })
+                }
 
                 <div>
                     <form onSubmit={handleSubmit}>
                         <label>Credit Card Number</label>
-                        <input 
+                        <input
                             type="string"
                             required
                             onChange={(e) => {
                                 setOrder({ ...order, credit_card_number: e.target.value })
                             }}
                         />
-                        <br/>
+                        <br />
 
                         <label>Expiration Date</label>
-                        <input 
+                        <input
                             type="string"
                             required
                             onChange={(e) => {
                                 setOrder({ ...order, expir_date: e.target.value })
                             }}
                         />
-                        <br/>
+                        <br />
 
                         <label>cvv</label>
-                        <input 
+                        <input
                             type="string"
                             required
                             onChange={(e) => {
                                 setOrder({ ...order, cvv: e.target.value })
                             }}
                         />
-                        <br/>
+                        <br />
 
                         <label>Card Holder Name</label>
-                        <input 
+                        <input
                             type="string"
                             required
                             onChange={(e) => {
