@@ -16,5 +16,4 @@ This is an enterprise web project.
 - On view confirmation page
   - Change title
   - Add navigation back to the purchase page
-- Add footer
 - Add header
