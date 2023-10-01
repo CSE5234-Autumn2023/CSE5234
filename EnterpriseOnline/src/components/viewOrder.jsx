@@ -1,10 +1,9 @@
-import React, {useState} from "react"
+import React from "react"
 import {useLocation, useNavigate} from 'react-router-dom'
-import Footer from './footer'
 
 const ViewOrder = () => {
 
-    let title = "view order page"
+    let title = "Your Order"
 
     let location = useLocation();
     const navigate = useNavigate(); 

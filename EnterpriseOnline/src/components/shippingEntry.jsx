@@ -1,6 +1,5 @@
 import React, {useState} from "react"
 import {useLocation, useNavigate} from 'react-router-dom'
-import Footer from './footer'
 
 const ShippingEntry = () => {
 
@@ -14,10 +13,13 @@ const ShippingEntry = () => {
         navigate('/purchase/viewOrder', { state: { order } });
     }
 
-    console.log('order: ', initialOrder);
+    let title = "Enter Shipping Information"
 
     return (
         <div>
+            <h1>
+                {title}
+            </h1>
             <form onSubmit={handleSubmit}>
                 <label>Address 1</label>
                 <input 

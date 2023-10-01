@@ -7,11 +7,13 @@ import ShippingEntry from './components/shippingEntry'
 import ViewOrder from './components/viewOrder'
 import ViewConfirmation from './components/viewConfirmation'
 import Footer from './components/footer'
+import Header from './components/header'
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Header />
         <div className="content">
           <Routes>
           <Route path="/purchase" element={<Purchase/>} />

@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import mock_products from "../data/mock_products.json";
 import Product from "./product";
 import "./styles/purchase.css";
-import Footer from './footer'
 
 const Purchase = () => {
     const [order, setOrder] = useState({
