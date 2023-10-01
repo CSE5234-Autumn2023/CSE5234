@@ -7,15 +7,11 @@ const viewConfirmation = () => {
 
     return (
         <div>
-            <main>
-                <h1>
-                    {title}
-                </h1>
+            <h1>
+                {title}
+            </h1>
 
-                <p>Thank you for placing your order. Your confirmation code is 00000001</p>
-            </main>
-
-            <Footer />
+            <p>Thank you for placing your order. Your confirmation code is 00000001</p>
         </div>
     )
 }

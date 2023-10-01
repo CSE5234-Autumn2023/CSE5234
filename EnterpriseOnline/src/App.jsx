@@ -6,20 +6,27 @@ import PaymentEntry from './components/paymentEntry'
 import ShippingEntry from './components/shippingEntry'
 import ViewOrder from './components/viewOrder'
 import ViewConfirmation from './components/viewConfirmation'
+import Footer from './components/footer'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <div className="content">
-        <Routes>
-        <Route path="/purchase" element={<Purchase/>} />
-        <Route path="/" element={<Navigate replace to="/purchase" />} />
-        <Route path="/purchase/paymentEntry" element={<PaymentEntry/>} />
-        <Route path="/purchase/shippingEntry" element={<ShippingEntry/>} />
-        <Route path="/purchase/viewOrder" element={<ViewOrder/>} />
-        <Route path="/purchase/viewConfirmation" element={<ViewConfirmation/>} />
-        </Routes>
+          <Routes>
+          <Route path="/purchase" element={<Purchase/>} />
+          <Route path="/" element={<Navigate replace to="/purchase" />} />
+          <Route path="/purchase/paymentEntry" element={<PaymentEntry/>} />
+          <Route path="/purchase/shippingEntry" element={<ShippingEntry/>} />
+          <Route path="/purchase/viewOrder" element={<ViewOrder/>} />
+          <Route path="/purchase/viewConfirmation" element={<ViewConfirmation/>} />
+          </Routes>
+        </div>
+        <div className="footer">
+            <h1>Contact Us!</h1>
+            <p>Address:      2015 Neil Ave</p>
+            <p>Phone Number: (614) 292-2572</p>
+            <p>Email:        cse@osu.edu</p>
         </div>
       </Router>
     </div>

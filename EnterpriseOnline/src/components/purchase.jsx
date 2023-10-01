@@ -18,24 +18,18 @@ const Purchase = () => {
     }
 
     return (
-        <div>
-            <main>
-                <div className="product-list offset-md-2 col-md-8">
-                    {
-                        mock_products.map((product, index) => {
+        <div className="product-list offset-md-2 col-md-8">
+            {
+                mock_products.map((product, index) => {
 
-                            return (
-                                <div className="product">
-                                    <Product product={product} order={order} index={index} />
-                                </div>
-                            )
-                        })
-                    }
-                    <button onClick={handleSubmit} className='button pay'>Pay</button>
-                </div>
-            </main>
-            
-            <Footer />
+                    return (
+                        <div className="product">
+                            <Product product={product} order={order} index={index} />
+                        </div>
+                    )
+                })
+            }
+            <button onClick={handleSubmit} className='button pay'>Pay</button>
         </div>
     )
 }
