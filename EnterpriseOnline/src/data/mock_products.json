@@ -1,0 +1,37 @@
+[
+    {
+        "img_url": "../data/product1.jpg",
+        "img_alt_text": "Camera",
+        "name": "Camera",
+        "description": "Model 2 Camera with Extra Zoom",
+        "price": 1000
+    },
+    {
+        "img_url": "../data/product2.jpg",
+        "img_alt_text": "Watch",
+        "name": "Watch",
+        "description": "Newly Release Watch 7",
+        "price": 500
+    },
+    {
+        "img_url": "../data/product3.jpg",
+        "img_alt_text": "Headphones",
+        "name": "Headphones",
+        "description": "Best Sounding Headphones",
+        "price": 200
+    },
+    {
+        "img_url": "../data/product4.jpg",
+        "img_alt_text": "Rubix Cube",
+        "name": "Rubix Cube",
+        "description": "Hardest Puzzle We Have",
+        "price": 25
+    },
+    {
+        "img_url": "../data/product5.jpg",
+        "img_alt_text": "Milk",
+        "name": "Milk",
+        "description": "Icy Cold Milk",
+        "price": 5
+    }
+]
