@@ -1,9 +1,9 @@
 import React from 'react';
-import '../App.css';
+import "./styles/footer.css";
 
 function Footer() {
     return (
-        <div class="footer">
+        <div className="footer">
             <h1>Contact Us!</h1>
             <p>Address:      2015 Neil Ave</p>
             <p>Phone Number: (614) 292-2572</p>
