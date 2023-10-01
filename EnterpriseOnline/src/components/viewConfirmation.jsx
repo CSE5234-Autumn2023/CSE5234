@@ -1,9 +1,8 @@
 import React from "react"
-import Footer from './footer'
 
 const viewConfirmation = () => {
 
-    let title = "view confirmation page"
+    let title = "Confirm Purchase"
 
     return (
         <div>

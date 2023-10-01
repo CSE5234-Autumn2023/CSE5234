@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useLocation, useNavigate } from 'react-router-dom'
-import Footer from './footer'
 
 const PaymentEntry = () => {
     let location = useLocation();
@@ -13,15 +12,18 @@ const PaymentEntry = () => {
         navigate('/purchase/shippingEntry', { state: { order } });
     }
 
-    console.log('order: ', initialOrder);
+    let title = "Enter Payment Information"
 
     return (
         <div>
+            <h1>
+                {title}
+            </h1>
             {
                 order.buyQuantity.map((buyQuantity, index) => {
 
                     return (
-                        <h1>Product {index+1}: {buyQuantity}</h1>
+                        <p>Product {index+1}: {buyQuantity}</p>
                     )
                 })
             }
