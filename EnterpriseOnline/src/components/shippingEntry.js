@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import {useLocation, useNavigate} from 'react-router-dom'
+import Footer from './footer'
 
 const ShippingEntry = () => {
 
@@ -17,55 +18,58 @@ const ShippingEntry = () => {
 
     return (
         <div>
+            <main>
+                <div>
+                    <form onSubmit={handleSubmit}>
+                        <label>Address 1</label>
+                        <input 
+                            type="string"
+                            required
+                            onChange={(e) => {
+                                setOrder({ ...order, address1: e.target.value })
+                            }}
+                        />
 
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>Address 1</label>
-                    <input 
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            setOrder({ ...order, address1: e.target.value })
-                        }}
-                    />
+                        <label>Address 2</label>
+                        <input 
+                            type="string"
+                            onChange={(e) => {
+                                setOrder({ ...order, address2: e.target.value })
+                            }}
+                        />
 
-                    <label>Address 2</label>
-                    <input 
-                        type="string"
-                        onChange={(e) => {
-                            setOrder({ ...order, address2: e.target.value })
-                        }}
-                    />
+                        <label>City</label>
+                        <input 
+                            type="string"
+                            required
+                            onChange={(e) => {
+                                setOrder({ ...order, city: e.target.value })
+                            }}
+                        />
 
-                    <label>City</label>
-                    <input 
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            setOrder({ ...order, city: e.target.value })
-                        }}
-                    />
+                        <label>State</label>
+                        <input 
+                            type="string"
+                            required
+                            onChange={(e) => {
+                                setOrder({ ...order, state: e.target.value })
+                            }}
+                        />
 
-                    <label>State</label>
-                    <input 
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            setOrder({ ...order, state: e.target.value })
-                        }}
-                    />
+                        <label>Zipcode</label>
+                        <input 
+                            type="string"
+                            required
+                            onChange={(e) => {
+                                setOrder({ ...order, zip: e.target.value })
+                            }}
+                        />
+                        <button className='button'>Confirm order</button>
+                    </form>
+                </div>
+            </main>
 
-                    <label>Zipcode</label>
-                    <input 
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            setOrder({ ...order, zip: e.target.value })
-                        }}
-                    />
-                    <button className='button'>Confirm order</button>
-                </form>
-            </div>
+            <Footer />
         </div>
     )
 }

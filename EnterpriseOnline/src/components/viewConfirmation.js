@@ -1,4 +1,5 @@
 import React from "react"
+import Footer from './footer'
 
 const viewConfirmation = () => {
 
@@ -6,11 +7,15 @@ const viewConfirmation = () => {
 
     return (
         <div>
-            <h1>
-                {title}
-            </h1>
+            <main>
+                <h1>
+                    {title}
+                </h1>
 
-            <h2>Thank you for placing your order. Your confirmation code is 00000001</h2>
+                <p>Thank you for placing your order. Your confirmation code is 00000001</p>
+            </main>
+
+            <Footer />
         </div>
     )
 }
