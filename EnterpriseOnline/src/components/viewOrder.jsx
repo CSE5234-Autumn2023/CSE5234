@@ -61,6 +61,12 @@ const ViewOrder = () => {
             <p>
                 Zip Code: {initialOrder.zip}
             </p>
+            <p>
+                Email Address: {initialOrder.email}
+            </p>
+            <p>
+                Zip Code: {initialOrder.shippingMethod}
+            </p>
 
             <button className='button' onClick={handleSubmit}>Place Order</button>
         </div>
