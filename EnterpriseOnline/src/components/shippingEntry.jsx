@@ -64,6 +64,29 @@ const ShippingEntry = () => {
                         setOrder({ ...order, zip: e.target.value })
                     }}
                 />
+
+                <label>Confirm Your Email</label>
+                <input 
+                    type="string"
+                    required
+                    onChange={(e) => {
+                        setOrder({ ...order, email: e.target.value })
+                    }}
+                />
+
+                <label>
+                    Shipping Method 
+                    <select
+                        required
+                        onChange={(e) => {
+                            setOrder({ ...order, shippingMethod: e.target.value })
+                        }}
+                    >
+                        <option value="">Select an option</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Expedited">Expedited</option>
+                    </select>
+                </label>
                 <button className='button'>Confirm order</button>
             </form>
         </div>
