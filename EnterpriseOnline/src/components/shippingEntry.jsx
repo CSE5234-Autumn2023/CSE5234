@@ -1,16 +1,12 @@
 import React, {useState} from "react"
 import {useLocation, useNavigate} from 'react-router-dom'
 
-const ShippingEntry = () => {
+const ShippingEntry = (props) => {
 
-    let location = useLocation();
     const navigate = useNavigate(); 
 
-    const initialOrder = location.state.order;
-    const [order, setOrder] = useState(initialOrder)
-
     const handleSubmit = (e) => {
-        navigate('/purchase/viewOrder', { state: { order } });
+        navigate('/purchase/viewOrder');
     }
 
     let title = "Enter Shipping Information"
@@ -26,7 +22,7 @@ const ShippingEntry = () => {
                     type="string"
                     required
                     onChange={(e) => {
-                        setOrder({ ...order, address1: e.target.value })
+                        props.setOrder({ ...props.order, address1: e.target.value })
                     }}
                 />
 
@@ -34,7 +30,7 @@ const ShippingEntry = () => {
                 <input 
                     type="string"
                     onChange={(e) => {
-                        setOrder({ ...order, address2: e.target.value })
+                        props.setOrder({ ...props.order, address2: e.target.value })
                     }}
                 />
 
@@ -43,7 +39,7 @@ const ShippingEntry = () => {
                     type="string"
                     required
                     onChange={(e) => {
-                        setOrder({ ...order, city: e.target.value })
+                        props.setOrder({ ...props.order, city: e.target.value })
                     }}
                 />
 
@@ -52,7 +48,7 @@ const ShippingEntry = () => {
                     type="string"
                     required
                     onChange={(e) => {
-                        setOrder({ ...order, state: e.target.value })
+                        props.setOrder({ ...props.order, state: e.target.value })
                     }}
                 />
 
@@ -61,7 +57,7 @@ const ShippingEntry = () => {
                     type="string"
                     required
                     onChange={(e) => {
-                        setOrder({ ...order, zip: e.target.value })
+                        props.setOrder({ ...props.order, zip: e.target.value })
                     }}
                 />
 
@@ -70,7 +66,7 @@ const ShippingEntry = () => {
                     type="string"
                     required
                     onChange={(e) => {
-                        setOrder({ ...order, email: e.target.value })
+                        props.setOrder({ ...props.order, email: e.target.value })
                     }}
                 />
 
@@ -79,7 +75,7 @@ const ShippingEntry = () => {
                     <select
                         required
                         onChange={(e) => {
-                            setOrder({ ...order, shippingMethod: e.target.value })
+                            props.setOrder({ ...props.order, shippingMethod: e.target.value })
                         }}
                     >
                         <option value="">Select an option</option>

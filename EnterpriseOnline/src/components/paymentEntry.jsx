@@ -1,15 +1,12 @@
 import React, { useState } from "react"
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const PaymentEntry = () => {
-    let location = useLocation();
+const PaymentEntry = (props) => {
+
     const navigate = useNavigate();
 
-    const initialOrder = location.state.order;
-    const [order, setOrder] = useState(initialOrder)
-
     const handleSubmit = (e) => {
-        navigate('/purchase/shippingEntry', { state: { order } });
+        navigate('/purchase/shippingEntry');
     }
 
     let title = "Enter Payment Information"
@@ -20,7 +17,7 @@ const PaymentEntry = () => {
                 {title}
             </h1>
             {
-                order.buyQuantity.map((buyQuantity, index) => {
+                props.order.buyQuantity.map((buyQuantity, index) => {
 
                     return (
                         <p>Product {index+1}: {buyQuantity}</p>
@@ -35,7 +32,7 @@ const PaymentEntry = () => {
                         type="string"
                         required
                         onChange={(e) => {
-                            setOrder({ ...order, credit_card_number: e.target.value })
+                            props.setOrder({ ...props.order, credit_card_number: e.target.value })
                         }}
                     />
                     <br />
@@ -45,7 +42,7 @@ const PaymentEntry = () => {
                         type="string"
                         required
                         onChange={(e) => {
-                            setOrder({ ...order, expir_date: e.target.value })
+                            props.setOrder({ ...props.order, expir_date: e.target.value })
                         }}
                     />
                     <br />
@@ -55,7 +52,7 @@ const PaymentEntry = () => {
                         type="string"
                         required
                         onChange={(e) => {
-                            setOrder({ ...order, cvv: e.target.value })
+                            props.setOrder({ ...props.order, cvv: e.target.value })
                         }}
                     />
                     <br />
@@ -65,7 +62,7 @@ const PaymentEntry = () => {
                         type="string"
                         required
                         onChange={(e) => {
-                            setOrder({ ...order, card_holder_name: e.target.value })
+                            props.setOrder({ ...props.order, card_holder_name: e.target.value })
                         }}
                     />
                     <button className='button'>Set up shipping</button>

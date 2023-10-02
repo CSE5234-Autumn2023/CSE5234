@@ -1,16 +1,19 @@
 import React from "react"
-import {useLocation, useNavigate} from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-const ViewOrder = () => {
+const ViewOrder = (props) => {
 
     let title = "Your Order"
 
-    let location = useLocation();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
-    const initialOrder = location.state.order;
+    const initialOrder = props.order;
 
     const handleSubmit = (e) => {
+        props.setOrder({
+            buyQuantity: [0, 0, 0, 0, 0], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
+        })
         navigate('/purchase/viewConfirmation');
     }
 
@@ -26,7 +29,7 @@ const ViewOrder = () => {
                 initialOrder.buyQuantity.map((buyQuantity, index) => {
 
                     return (
-                        <p>Product {index+1}: {buyQuantity}</p>
+                        <p>Product {index + 1}: {buyQuantity}</p>
                     )
                 })
             }

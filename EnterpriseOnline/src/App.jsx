@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react"
+import React, { useState } from "react"
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Purchase from "./components/purchase"
 import PaymentEntry from './components/paymentEntry'
@@ -10,18 +10,24 @@ import Footer from './components/footer'
 import Header from './components/header'
 
 function App() {
+
+  const [order, setOrder] = useState({
+    buyQuantity: [0, 0, 0, 0, 0], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+    address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
+  });
+
   return (
     <div className="App">
       <Router>
         <Header />
         <div className="content">
           <Routes>
-          <Route path="/purchase" element={<Purchase/>} />
-          <Route path="/" element={<Navigate replace to="/purchase" />} />
-          <Route path="/purchase/paymentEntry" element={<PaymentEntry/>} />
-          <Route path="/purchase/shippingEntry" element={<ShippingEntry/>} />
-          <Route path="/purchase/viewOrder" element={<ViewOrder/>} />
-          <Route path="/purchase/viewConfirmation" element={<ViewConfirmation/>} />
+            <Route path="/purchase" element={<Purchase order={ order } setOrder={ setOrder } />} />
+            <Route path="/" element={<Navigate replace to="/purchase" />} />
+            <Route path="/purchase/paymentEntry" element={<PaymentEntry order={ order } setOrder={ setOrder } />} />
+            <Route path="/purchase/shippingEntry" element={<ShippingEntry order={ order } setOrder={ setOrder } />} />
+            <Route path="/purchase/viewOrder" element={<ViewOrder order={ order } setOrder={ setOrder } />} />
+            <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={ order } setOrder={ setOrder } />} />
           </Routes>
         </div>
         <Footer />
