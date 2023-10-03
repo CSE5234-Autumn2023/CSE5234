@@ -10,6 +10,7 @@ Use bootstrap for style
   - Make the items horizontal instead of vertical
   - Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)
   - Basic uniform styling
+  - If you want to change the flow, look at how the professor has his set up on the lab 6 sheet
 - On the payment page
   - Display total cost
   - Basic style update
@@ -33,6 +34,9 @@ Use bootstrap for style
   - Basic styling
 - On viewConfirmation page
   - Basic styling
+- On ContactUs page
+  - Make it
+  - Put fake info on it
  
 Nick
 - Header
