@@ -1,5 +1,9 @@
 .content {
-  padding: 15px 50px 25px 50px;
+  padding-bottom: 150px;
+}
+
+.App {
+  min-height: 100vh;
 }
 
 h1 {
