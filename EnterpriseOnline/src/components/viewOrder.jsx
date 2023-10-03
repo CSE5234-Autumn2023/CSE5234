@@ -1,5 +1,7 @@
-import React from "react"
-import { useLocation, useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from 'react-router-dom';
+import mock_products from "../data/mock_products.json";
+import "./styles/viewOrder.css";
 
 const ViewOrder = (props) => {
 
@@ -9,13 +11,42 @@ const ViewOrder = (props) => {
 
     const initialOrder = props.order;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         props.setOrder({
-            buyQuantity: [0, 0, 0, 0, 0], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            products: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
-        })
+        });
+
+        let products_list = []
+
+        mock_products.map((product) => (
+            products_list.push({
+                product_name: product.name,
+                quantity: 0,
+                price: product.price
+            })
+        ))
+
+        props.setOrder({ ...props.order, products: products_list })
+
         navigate('/purchase/viewConfirmation');
     }
+
+
+    const calculateTotalCost = () => {
+        let total_cost = 0
+
+        props.order.products.map((product) => {
+            total_cost += product.price * product.quantity;
+        })
+
+        return (
+            <div className="total-cost">
+                <p className="product-in-cart-line">Total Cost: ${total_cost}</p>
+            </div>
+        )
+    }
+
 
     return (
         <div>
@@ -26,13 +57,24 @@ const ViewOrder = (props) => {
             <h2>Products</h2>
 
             {
-                initialOrder.buyQuantity.map((buyQuantity, index) => {
+                props.order.products.map((product) => {
 
                     return (
-                        <p>Product {index + 1}: {buyQuantity}</p>
+                        <div className="product-in-cart-summary">
+                            <p className="product-in-cart-line">{product.product_name}:</p>
+                            <p className="product-in-cart-line">Quantity - {product.quantity}</p>
+                            <p className="product-in-cart-line">Cost - ${product.price * product.quantity}</p>
+                        </div>
                     )
                 })
             }
+
+            {
+                calculateTotalCost()
+            }
+
+            <hr/>
+
 
             <h2>Payment Information</h2>
             <p>

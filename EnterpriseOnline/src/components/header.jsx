@@ -7,9 +7,6 @@ function Header() {
             <div>
                 <h1>CSE 5234</h1>
             </div>
-            <div>
-                <p>Navigate to...</p>
-            </div>
         </div>
     )
 }

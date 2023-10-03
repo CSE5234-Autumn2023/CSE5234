@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import { useLocation, useNavigate } from 'react-router-dom'
+import React from "react"
+import { useNavigate } from 'react-router-dom'
+import "./styles/paymentEntry.css";
 
 const PaymentEntry = (props) => {
 
@@ -11,19 +12,43 @@ const PaymentEntry = (props) => {
 
     let title = "Enter Payment Information"
 
+    const calculateTotalCost = () => {
+        let total_cost = 0
+
+        props.order.products.map((product) => {
+            total_cost += product.price * product.quantity;
+        })
+
+        return (
+            <div className="total-cost">
+                <p>Total Cost: ${total_cost}</p>
+            </div>
+        )
+    }
+
     return (
         <div>
             <h1>
                 {title}
             </h1>
             {
-                props.order.buyQuantity.map((buyQuantity, index) => {
+                props.order.products.map((product) => {
 
                     return (
-                        <p>Product {index+1}: {buyQuantity}</p>
+                        <div className="product-in-cart-summary">
+                            <p>{product.product_name}:</p>
+                            <p>Quantity - {product.quantity}</p>
+                            <p>Cost - ${product.price * product.quantity}</p>
+                        </div>
                     )
                 })
             }
+
+            {
+                calculateTotalCost()
+            }
+
+            <hr/>
 
             <div>
                 <form onSubmit={handleSubmit}>
@@ -65,7 +90,9 @@ const PaymentEntry = (props) => {
                             props.setOrder({ ...props.order, card_holder_name: e.target.value })
                         }}
                     />
-                    <button className='button'>Set up shipping</button>
+                    <div>
+                        <button className='button'>Set up shipping</button>
+                    </div>
                 </form>
             </div>
         </div>

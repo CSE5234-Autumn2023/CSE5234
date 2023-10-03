@@ -19,7 +19,7 @@ const Purchase = (props) => {
 
                     return (
                         <div className="product">
-                            <Product product={product} order={props.order} index={index} />
+                            <Product product={product} products={props.order.products} order={props.order} index={index} />
                         </div>
                     )
                 })
