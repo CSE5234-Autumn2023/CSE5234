@@ -3,7 +3,7 @@ import "./styles/header.css";
 
 function Header() {
     return (
-        <div className="header">
+        <div class="header">
             <div>
                 <h1>CSE 5234</h1>
             </div>
