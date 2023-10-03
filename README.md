@@ -32,7 +32,7 @@ Use bootstrap for style
   - Add item descriptions (not just Product i)
   - Basic styling
 - On viewConfirmation page
--   Basic styling
+  - Basic styling
  
 Nick
 - Header
