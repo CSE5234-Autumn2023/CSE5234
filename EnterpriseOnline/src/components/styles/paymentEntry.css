@@ -1,0 +1,16 @@
+p {
+    margin: 5px;
+}
+
+.product-in-cart-summary {
+    margin-bottom: 20px;
+}
+
+.total-cost {
+    margin: 40px 0px 30px;
+}
+
+hr {
+    width:25%;
+    margin-bottom: 30px;
+}

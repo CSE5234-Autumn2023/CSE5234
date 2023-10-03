@@ -34,7 +34,8 @@ function Product(props) {
                     <button
                         onClick={() => {
                             setAddedToCartConfirmation(true);
-                            props.order.buyQuantity[props.index] = props.order.buyQuantity[props.index] + 1;
+                            console.log(props.order)
+                            props.order.products[props.index].quantity = props.order.products[props.index].quantity + 1;
                         }}
                         className="btn btn-primary add-to-cart-btn"
                     >

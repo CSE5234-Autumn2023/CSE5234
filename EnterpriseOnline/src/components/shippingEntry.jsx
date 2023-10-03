@@ -22,7 +22,7 @@ const ShippingEntry = (props) => {
                     type="string"
                     required
                     onChange={(e) => {
-                        props.setOrder({ ...props.order, address1: e.target.value })
+                        props.setOrder({ ...props.order, address_1: e.target.value })
                     }}
                 />
 
@@ -30,7 +30,7 @@ const ShippingEntry = (props) => {
                 <input 
                     type="string"
                     onChange={(e) => {
-                        props.setOrder({ ...props.order, address2: e.target.value })
+                        props.setOrder({ ...props.order, address_2: e.target.value })
                     }}
                 />
 
