@@ -17,21 +17,21 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <Router>
-        <Header />
-        <div className="content">
-          <Routes>
-            <Route path="/purchase" element={<Purchase order={ order } setOrder={ setOrder } />} />
-            <Route path="/" element={<Navigate replace to="/purchase" />} />
-            <Route path="/purchase/paymentEntry" element={<PaymentEntry order={ order } setOrder={ setOrder } />} />
-            <Route path="/purchase/shippingEntry" element={<ShippingEntry order={ order } setOrder={ setOrder } />} />
-            <Route path="/purchase/viewOrder" element={<ViewOrder order={ order } setOrder={ setOrder } />} />
-            <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={ order } setOrder={ setOrder } />} />
-          </Routes>
-        </div>
-        <Footer />
-      </Router>
+    <div class="App">
+      <Header />
+        <Router>
+          <div class="content">
+            <Routes>
+              <Route path="/purchase" element={<Purchase order={ order } setOrder={ setOrder } />} />
+              <Route path="/" element={<Navigate replace to="/purchase" />} />
+              <Route path="/purchase/paymentEntry" element={<PaymentEntry order={ order } setOrder={ setOrder } />} />
+              <Route path="/purchase/shippingEntry" element={<ShippingEntry order={ order } setOrder={ setOrder } />} />
+              <Route path="/purchase/viewOrder" element={<ViewOrder order={ order } setOrder={ setOrder } />} />
+              <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={ order } setOrder={ setOrder } />} />
+            </Routes>
+          </div>
+        </Router>
+      <Footer />
     </div>
   );
 }
