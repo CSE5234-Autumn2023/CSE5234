@@ -9,6 +9,7 @@ import ViewConfirmation from './components/viewConfirmation';
 import Footer from './components/footer';
 import Header from './components/header';
 import AboutUs from './components/aboutUs';
+import ContactUs from './components/contactUs';
 import mock_products from "./data/mock_products.json";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} />} />
             <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} />} />
             <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} />} />
+            <Route path="/contactUs" element={<ContactUs order={order} setOrder={setOrder} />} />
           </Routes>
           <Footer />
         </div>

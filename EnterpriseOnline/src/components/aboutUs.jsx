@@ -1,5 +1,5 @@
 import React from 'react';
-import "./styles/footer.css";
+import "./styles/aboutUs.css";
 
 function AboutUs() {
     return (

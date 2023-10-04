@@ -14,12 +14,17 @@
 
 .aboutUs {
   position: absolute;
-  right: 220px;
+  right: 340px;
+}
+
+.contactUs {
+  position: absolute;
+  right: 225px;
 }
 
 .purchase {
   position: absolute;
-  right: 120px;
+  right: 125px;
 }
 
 .checkout {
