@@ -8,6 +8,7 @@ import ViewOrder from './components/viewOrder';
 import ViewConfirmation from './components/viewConfirmation';
 import Footer from './components/footer';
 import Header from './components/header';
+import AboutUs from './components/aboutUs';
 
 function App(props) {
 
@@ -43,6 +44,7 @@ function App(props) {
             <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} />} />
             <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} />} />
             <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} />} />
+            <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} />} />
           </Routes>
         </div>
         <Footer />
