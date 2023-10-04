@@ -26,6 +26,7 @@ Nick
 - Header
   - Style the navs into a grid of equal spacing
   - Change the "purchase" nav to "home page"
+  - Restrict navigation to checkout page if no products have a count over 0
 - Footer
   - Basic style update
   - Fix floating issue
