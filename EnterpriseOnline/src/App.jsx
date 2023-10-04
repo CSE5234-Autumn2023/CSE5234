@@ -32,7 +32,7 @@ function App() {
     <div class="App">
       <Router>
         <div class="content">
-          <Header />
+          <Header order={order}/>
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
             <Route path="/" element={<Navigate replace to="/purchase" />} />

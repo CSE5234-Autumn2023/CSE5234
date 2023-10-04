@@ -26,10 +26,11 @@ Nick
 - Header
   - Style the navs into a grid of equal spacing
   - Change the "purchase" nav to "home page"
-  - Restrict navigation to checkout page if no products have a count over 0
+  - ~~Restrict navigation to checkout page if no products have a count over 0~~
 - Footer
   - Basic style update
   - Fix floating issue
+  - Delete cart with props reset button (look at viewOrder)
 - About page
 - Populate the text boxes if they already have values
 

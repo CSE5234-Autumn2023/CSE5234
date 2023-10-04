@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./styles/header.css";
 
 
-function Header() {
+function Header(props) {
 
     const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ function Header() {
                 <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Purchase</button>
             </div>
             <div className='checkout'>
-                <button onClick={checkoutPageClick} className='btn btn-light checkout-btn'>Checkout</button>
+                <button onClick={checkoutPageClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn'>Checkout</button>
             </div>
         </div >
     )
