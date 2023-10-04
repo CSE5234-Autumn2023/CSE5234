@@ -14,14 +14,11 @@ Use bootstrap for style
   - For state, it could be a dropdown similar to the shipping method
   - Update dropdown with css
   - Basic styling
-- On viewOrder page
-  - Basic styling
-  - Add item descriptions (not just Product i)
   - Credit Card Holder Name is not populating, either a problem on this page or another
 - On viewConfirmation page
   - Basic styling
 - On ContactUs page
-  - Make it
+  - Basic styling
   - Put fake info on it
 - Add face and description to About Us page
  
@@ -31,7 +28,6 @@ Nick
 - Footer
   - Basic style update
   - Fix floating issue
-- Home page
 - About page
 - Populate the text boxes if they already have values
 
