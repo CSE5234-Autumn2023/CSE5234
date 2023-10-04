@@ -1,32 +1,21 @@
-import React from "react"
-import {useLocation} from 'react-router-dom'
+import React from "react";
+import './styles/productSummary.css'
 
-const ViewOrder = () => {
+function ProductSummary(props) {
 
-    let title = "Product Summary"
-
-    let location = useLocation();
-
-    const initialOrder = location.state.order;
 
     return (
-        <div>
-            <h1>
-                {title}
-            </h1>
-
-            <h2>Products</h2>
-
-            {
-                initialOrder.buyQuantity.map((buyQuantity, index) => {
-
-                    return (
-                        <p>Product {index+1}: {buyQuantity}</p>
-                    )
-                })
-            }
+        <div className="col-md-6 product-summary-details">
+            <div className="product-summary-line">
+                <p className="product-summary-name">{props.product.name}</p>
+                <p className="product-summary-quantity">Quantity - {props.product.quantity}</p>
+            </div>
+            <div className="product-summary-line">
+                <p className="product-summary-description">{props.product.description}</p>
+                <p className="product-summary-cost">Cost - ${props.product.price * props.product.quantity}</p>
+            </div>
         </div>
     )
 }
 
-export default ViewOrder;
+export default ProductSummary;

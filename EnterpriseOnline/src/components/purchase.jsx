@@ -1,30 +1,38 @@
 import React from "react"
-import { useNavigate } from "react-router-dom";
-import mock_products from "../data/mock_products.json";
 import Product from "./product";
 import "./styles/purchase.css";
 
 const Purchase = (props) => {
 
-    const navigate = useNavigate();
-
-    const handleSubmit = (e) => {
-        navigate('/purchase/paymentEntry');
-    }
-
     return (
-        <div className="product-list offset-md-2 col-md-8">
-            {
-                mock_products.map((product, index) => {
+        <div className="products-page">
+            <div className="product-list offset-md-2 col-md-8">
+                {
+                    props.order.products.map((product, index) => {
 
-                    return (
-                        <div className="product">
-                            <Product product={product} products={props.order.products} order={props.order} index={index} />
-                        </div>
-                    )
-                })
-            }
-            <button onClick={handleSubmit} className='button pay'>Pay</button>
+                        return (
+                                index % 2 === 0
+                                ?
+                                <div className="row">
+                                    <div className="col-md-6 product">
+                                        <Product product={product} index={index} />
+                                    </div>
+                                    {
+                                    props.order.products.length !== index+1
+                                    ?
+                                    <div className="col-md-6 product">
+                                        <Product product={props.order.products[index+1]} index={index+1} />
+                                    </div>
+                                    :
+                                    <></>
+                                    }
+                                </div>
+                                :
+                                <></>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

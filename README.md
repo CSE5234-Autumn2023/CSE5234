@@ -37,12 +37,13 @@ Nick
 
 Paul
 - On the purchase page
-  - Make the items horizontal instead of vertical
-  - Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)
+  - ~~Make the items horizontal instead of vertical~~
+  - ~~Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)~~
   - Basic uniform styling
   - If you want to change the flow, look at how the professor has his set up on the lab 6 sheet
+  - Fix Rubix cube spelling ??
 - On the payment page
-  - Display total cost
+  - ~~Display total cost~~
   - Basic style update
   - Not style, but could you restrict input
     - Make sure the number of characters is correct for particular field (credit card is 16, cvv is 3)

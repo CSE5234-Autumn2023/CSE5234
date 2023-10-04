@@ -1,12 +1,14 @@
-import React from "react"
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from 'react-router-dom';
+import ProductSummary from './productSummary';
 import "./styles/paymentEntry.css";
+
 
 const PaymentEntry = (props) => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = () => {
         navigate('/purchase/shippingEntry');
     }
 
@@ -20,35 +22,40 @@ const PaymentEntry = (props) => {
         })
 
         return (
-            <div className="total-cost">
-                <p>Total Cost: ${total_cost}</p>
+            <div className="col-md-6 total-cost">
+                Total Cost: ${total_cost}
             </div>
         )
     }
-
+    
     return (
         <div>
             <h1>
                 {title}
             </h1>
-            {
-                props.order.products.map((product) => {
+            <div>
+                {
+                    props.order.products.map((product) => {
+                        return (
+                            (product.quantity > 0)
+                                ?
+                            <div className="container product-in-cart-summary">
+                                <ProductSummary product={product} />
+                            </div>
+                                :
+                            <></>
+                        )
+                    })
+                }
+            </div>
 
-                    return (
-                        <div className="product-in-cart-summary">
-                            <p>{product.product_name}:</p>
-                            <p>Quantity - {product.quantity}</p>
-                            <p>Cost - ${product.price * product.quantity}</p>
-                        </div>
-                    )
-                })
-            }
+            <div>
+                {
+                    calculateTotalCost()
+                }
+            </div>
 
-            {
-                calculateTotalCost()
-            }
-
-            <hr/>
+            <hr />
 
             <div>
                 <form onSubmit={handleSubmit}>

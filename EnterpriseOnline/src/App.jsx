@@ -9,34 +9,21 @@ import ViewConfirmation from './components/viewConfirmation';
 import Footer from './components/footer';
 import Header from './components/header';
 import AboutUs from './components/aboutUs';
+import mock_products from "./data/mock_products.json";
 
-function App(props) {
+function App() {
 
   const [order, setOrder] = useState({
-    products: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+    products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
     address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
   });
 
-  useEffect(() => {
-
-    let products_list = []
-
-    props.mock_products.map((product) => (
-      products_list.push({
-      product_name: product.name,
-      quantity: 0,
-      price: product.price
-      })
-    ))
-
-    setOrder({...order, products: products_list} )
-  }, [props])
 
   return (
-    <div className="App">
+    <div class="App">
       <Router>
-        <Header />
-        <div className="content">
+        <div class="content">
+          <Header />
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
             <Route path="/" element={<Navigate replace to="/purchase" />} />
@@ -46,8 +33,8 @@ function App(props) {
             <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} />} />
             <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} />} />
           </Routes>
+          <Footer />
         </div>
-        <Footer />
       </Router>
     </div>
   );

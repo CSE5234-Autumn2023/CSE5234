@@ -15,3 +15,11 @@ label {
 .add-to-cart-btn {
     margin-top: 10px;
 }
+
+.product-quantity {
+    font-size: small;
+}
+
+.product-details {
+    border: 1px solid black;
+}
