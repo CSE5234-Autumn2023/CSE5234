@@ -20,6 +20,14 @@ function App() {
   });
 
 
+  useEffect(() => {
+    const local_order = JSON.parse(localStorage.getItem('order'));
+    if (local_order) {
+      setOrder(local_order);
+    }
+  }, []);
+
+
   return (
     <div class="App">
       <Router>

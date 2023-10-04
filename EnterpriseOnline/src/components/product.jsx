@@ -4,17 +4,18 @@ import "./styles/product.css";
 function Product(props) {
 
     const [addedToCartConfirmation, setAddedToCartConfirmation] = useState(false);
-    const THREE_QUARTER_SECOND_IN_MS = 750;
+    const HALF_SECOND_IN_MS = 500;
 
     useEffect(() => {
         if (addedToCartConfirmation) {
             const interval = setInterval(() => {
                 setAddedToCartConfirmation(false)
-            }, THREE_QUARTER_SECOND_IN_MS);
+            }, HALF_SECOND_IN_MS);
 
             return () => clearInterval(interval);
         }
     }, [addedToCartConfirmation])
+
 
 
     return (
@@ -34,7 +35,10 @@ function Product(props) {
                 <button
                     onClick={() => {
                         setAddedToCartConfirmation(true);
-                        props.product.quantity = props.product.quantity + 1;
+                        let updated_products = props.order.products;
+                        updated_products[props.index].quantity = props.product.quantity + 1;
+                        props.setOrder({ ...props.order, products: updated_products })
+                        localStorage.setItem('order', JSON.stringify(props.order));
                     }}
                     className="btn btn-primary add-to-cart-btn"
                 >

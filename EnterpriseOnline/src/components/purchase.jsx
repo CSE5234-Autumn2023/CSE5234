@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Product from "./product";
 import "./styles/purchase.css";
 
@@ -15,13 +15,13 @@ const Purchase = (props) => {
                                 ?
                                 <div className="row">
                                     <div className="col-md-6 product">
-                                        <Product product={product} index={index} />
+                                        <Product product={product} index={index} order={props.order} setOrder={props.setOrder} />
                                     </div>
                                     {
                                     props.order.products.length !== index+1
                                     ?
                                     <div className="col-md-6 product">
-                                        <Product product={props.order.products[index+1]} index={index+1} />
+                                        <Product product={props.order.products[index+1]} index={index+1} order={props.order} setOrder={props.setOrder} />
                                     </div>
                                     :
                                     <></>
