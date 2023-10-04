@@ -11,6 +11,10 @@ function Header() {
         navigate('/aboutUs');
     }
 
+    const contactUsClick = (e) => {
+        navigate('/contactUs');
+    }
+
     const purchasePageClick = (e) => {
         navigate('/purchase')
     }
@@ -23,10 +27,13 @@ function Header() {
         <div class="header">
             <div className='empty-div'></div>
             <div className="title">
-                <h1>CSE 5234</h1>
+                <h1>Enterprise Online</h1>
             </div>
             <div className='aboutUs'>
                 <button onClick={aboutUsClick} className='btn btn-light checkout-btn'>About Us</button>
+            </div>
+            <div className='contactUs'>
+                <button onClick={contactUsClick} className='btn btn-light checkout-btn'>Contact Us</button>
             </div>
             <div className='purchase'>
                 <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Purchase</button>
