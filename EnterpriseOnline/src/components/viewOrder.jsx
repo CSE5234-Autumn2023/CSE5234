@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import mock_products from "../data/mock_products.json";
+import ProductSummary from './productSummary';
 import "./styles/viewOrder.css";
 
 const ViewOrder = (props) => {
@@ -44,24 +45,29 @@ const ViewOrder = (props) => {
 
             <h2>Products</h2>
 
-            {
-                props.order.products.map((product) => {
+            <div>
+                {
+                    props.order.products.map((product) => {
+                        return (
+                            (product.quantity > 0)
+                                ?
+                            <div className="container product-in-cart-summary">
+                                <ProductSummary product={product} />
+                            </div>
+                                :
+                            <></>
+                        )
+                    })
+                }
+            </div>
 
-                    return (
-                        <div className="product-in-cart-summary">
-                            <p className="product-in-cart-line">{product.product_name}:</p>
-                            <p className="product-in-cart-line">Quantity - {product.quantity}</p>
-                            <p className="product-in-cart-line">Cost - ${product.price * product.quantity}</p>
-                        </div>
-                    )
-                })
-            }
+            <div>
+                {
+                    calculateTotalCost()
+                }
+            </div>
 
-            {
-                calculateTotalCost()
-            }
-
-            <hr/>
+            <hr />
 
 
             <h2>Payment Information</h2>

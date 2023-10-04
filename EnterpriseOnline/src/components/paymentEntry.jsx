@@ -37,9 +37,13 @@ const PaymentEntry = (props) => {
                 {
                     props.order.products.map((product) => {
                         return (
+                            (product.quantity > 0)
+                                ?
                             <div className="container product-in-cart-summary">
                                 <ProductSummary product={product} />
                             </div>
+                                :
+                            <></>
                         )
                     })
                 }
