@@ -23,6 +23,7 @@ Use bootstrap for style
 - On ContactUs page
   - Make it
   - Put fake info on it
+- Add face and description to About Us page
  
 Nick
 - Header
@@ -50,3 +51,4 @@ Paul
 - On productSummary (shopping cart) page
   - Add item descriptions (not just Product i)
   - Basic styling
+- Add face and description to About Us page

@@ -7,7 +7,15 @@ function Header() {
 
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
+    const aboutUsClick = (e) => {
+        navigate('/aboutUs');
+    }
+
+    const purchasePageClick = (e) => {
+        navigate('/purchase')
+    }
+
+    const checkoutPageClick = () => {
         navigate('/purchase/paymentEntry');
     }
 
@@ -17,8 +25,14 @@ function Header() {
             <div className="title">
                 <h1>CSE 5234</h1>
             </div>
+            <div className='aboutUs'>
+                <button onClick={aboutUsClick} className='btn btn-light checkout-btn'>About Us</button>
+            </div>
+            <div className='purchase'>
+                <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Purchase</button>
+            </div>
             <div className='checkout'>
-                <button onClick={handleSubmit} className='btn btn-light checkout-btn'>Checkout</button>
+                <button onClick={checkoutPageClick} className='btn btn-light checkout-btn'>Checkout</button>
             </div>
         </div >
     )
