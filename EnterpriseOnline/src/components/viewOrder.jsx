@@ -13,21 +13,9 @@ const ViewOrder = (props) => {
 
     const handleSubmit = () => {
         props.setOrder({
-            products: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
         });
-
-        let products_list = []
-
-        mock_products.map((product) => (
-            products_list.push({
-                product_name: product.name,
-                quantity: 0,
-                price: product.price
-            })
-        ))
-
-        props.setOrder({ ...props.order, products: products_list })
 
         navigate('/purchase/viewConfirmation');
     }

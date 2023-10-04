@@ -8,45 +8,32 @@ import ViewOrder from './components/viewOrder';
 import ViewConfirmation from './components/viewConfirmation';
 import Footer from './components/footer';
 import Header from './components/header';
+import mock_products from "./data/mock_products.json";
 
-function App(props) {
+function App() {
 
   const [order, setOrder] = useState({
-    products: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+    products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
     address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
   });
 
-  useEffect(() => {
-
-    let products_list = []
-
-    props.mock_products.map((product) => (
-      products_list.push({
-      product_name: product.name,
-      quantity: 0,
-      price: product.price
-      })
-    ))
-
-    setOrder({...order, products: products_list} )
-  }, [props])
 
   return (
     <div class="App">
-      <Header />
-        <Router>
-          <div class="content">
-            <Routes>
-              <Route path="/purchase" element={<Purchase order={ order } setOrder={ setOrder } />} />
-              <Route path="/" element={<Navigate replace to="/purchase" />} />
-              <Route path="/purchase/paymentEntry" element={<PaymentEntry order={ order } setOrder={ setOrder } />} />
-              <Route path="/purchase/shippingEntry" element={<ShippingEntry order={ order } setOrder={ setOrder } />} />
-              <Route path="/purchase/viewOrder" element={<ViewOrder order={ order } setOrder={ setOrder } />} />
-              <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={ order } setOrder={ setOrder } />} />
-            </Routes>
-          </div>
-        </Router>
-      <Footer />
+      <Router>
+        <div class="content">
+          <Header />
+          <Routes>
+            <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
+            <Route path="/" element={<Navigate replace to="/purchase" />} />
+            <Route path="/purchase/paymentEntry" element={<PaymentEntry order={order} setOrder={setOrder} />} />
+            <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} />} />
+            <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} />} />
+            <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} />} />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
     </div>
   );
 }

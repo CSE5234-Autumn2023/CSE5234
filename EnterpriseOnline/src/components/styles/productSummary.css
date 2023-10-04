@@ -1,0 +1,18 @@
+.product-summary-line {
+    display: flex;
+    justify-content: space-between
+}
+
+.product-summary-name,
+.product-summary-description {
+    text-align: left;
+}
+
+.product-summary-quantity,
+.product-summary-cost {
+    text-align: right;
+}
+
+.product-summary-details {
+    margin: 40px 0px 40px;
+}

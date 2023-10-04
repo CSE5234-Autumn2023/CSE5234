@@ -18,30 +18,30 @@ function Product(props) {
 
 
     return (
-        <div>
+        <div className="product-details">
             <label className="product-name">{props.product.name}</label>
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>
             {
                 addedToCartConfirmation
                     ?
-                    <button
-                        className="btn btn-success add-to-cart-btn product-confirmation"
-                    >
-                        Added to Cart
-                    </button>
+                <button
+                    className="btn btn-success add-to-cart-btn product-confirmation"
+                >
+                    Added to Cart
+                </button>
                     :
-                    <button
-                        onClick={() => {
-                            setAddedToCartConfirmation(true);
-                            console.log(props.order)
-                            props.order.products[props.index].quantity = props.order.products[props.index].quantity + 1;
-                        }}
-                        className="btn btn-primary add-to-cart-btn"
-                    >
-                        Add to Cart
-                    </button>
+                <button
+                    onClick={() => {
+                        setAddedToCartConfirmation(true);
+                        props.product.quantity = props.product.quantity + 1;
+                    }}
+                    className="btn btn-primary add-to-cart-btn"
+                >
+                    Add to Cart
+                </button>
             }
+            <div className="product-quantity">Quantity in Cart - {props.product.quantity}</div>
         </div>
     )
 }
