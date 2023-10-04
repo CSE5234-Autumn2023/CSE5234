@@ -24,7 +24,8 @@ Use bootstrap for style
  
 Nick
 - Header
-  - Add navs
+  - Style the navs into a grid of equal spacing
+  - Change the "purchase" nav to "home page"
 - Footer
   - Basic style update
   - Fix floating issue
