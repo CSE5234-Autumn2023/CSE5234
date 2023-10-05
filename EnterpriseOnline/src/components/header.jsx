@@ -25,21 +25,24 @@ function Header(props) {
 
     return (
         <div class="header">
-            <div className='empty-div'></div>
-            <div className="title">
+            <div class="d-flex flex-row">
+                <div class="p-2">
+                    <button onClick={aboutUsClick} className='btn btn-light checkout-btn'>About Us</button>
+                </div>
+                <div class="p-2">
+                    <button onClick={contactUsClick} className='btn btn-light checkout-btn'>Contact Us</button>
+                </div>
+            </div>
+            <div class="title">
                 <h1>Enterprise Online</h1>
             </div>
-            <div className='aboutUs'>
-                <button onClick={aboutUsClick} className='btn btn-light checkout-btn'>About Us</button>
-            </div>
-            <div className='contactUs'>
-                <button onClick={contactUsClick} className='btn btn-light checkout-btn'>Contact Us</button>
-            </div>
-            <div className='purchase'>
-                <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Purchase</button>
-            </div>
-            <div className='checkout'>
-                <button onClick={checkoutPageClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn'>Checkout</button>
+            <div class="d-flex flex-row-reverse">
+                <div class="p-2">
+                    <button onClick={checkoutPageClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn'>Checkout</button>
+                </div>
+                <div class="p-2">
+                    <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Purchase</button>
+                </div>
             </div>
         </div >
     )
