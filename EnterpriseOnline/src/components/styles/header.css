@@ -11,23 +11,3 @@
   margin-left: auto;
   margin-right: auto;
 }
-
-.aboutUs {
-  position: absolute;
-  right: 340px;
-}
-
-.contactUs {
-  position: absolute;
-  right: 225px;
-}
-
-.purchase {
-  position: absolute;
-  right: 125px;
-}
-
-.checkout {
-  position: absolute;
-  right: 20px;
-}

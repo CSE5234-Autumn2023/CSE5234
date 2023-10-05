@@ -55,53 +55,72 @@ const PaymentEntry = (props) => {
                 }
             </div>
 
-            <hr />
-
-            <div>
-                <form onSubmit={handleSubmit}>
-                    <label>Credit Card Number</label>
-                    <input
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            props.setOrder({ ...props.order, credit_card_number: e.target.value })
-                        }}
-                    />
-                    <br />
-
-                    <label>Expiration Date</label>
-                    <input
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            props.setOrder({ ...props.order, expir_date: e.target.value })
-                        }}
-                    />
-                    <br />
-
-                    <label>cvv</label>
-                    <input
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            props.setOrder({ ...props.order, cvv: e.target.value })
-                        }}
-                    />
-                    <br />
-
-                    <label>Card Holder Name</label>
-                    <input
-                        type="string"
-                        required
-                        onChange={(e) => {
-                            props.setOrder({ ...props.order, card_holder_name: e.target.value })
-                        }}
-                    />
-                    <div>
-                        <button className='button'>Set up shipping</button>
+            <form onSubmit={handleSubmit}>
+                <div className="offset-md-1 col-md-10">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Credit Card Number</label>
+                                <input
+                                    class="form-control"
+                                    type="string"
+                                    placeholder="Enter credit card number"
+                                    required
+                                    onChange={(e) => {
+                                        props.setOrder({ ...props.order, credit_card_number: e.target.value })
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Expiration Date</label>
+                                <input
+                                    class="form-control"
+                                    type="string"
+                                    placeholder="Enter credit card expiration date"
+                                    required
+                                    onChange={(e) => {
+                                        props.setOrder({ ...props.order, expir_date: e.target.value })
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>cvv</label>
+                                <input
+                                    class="form-control"
+                                    type="string"
+                                    placeholder="Enter credit card cvv"
+                                    required
+                                    onChange={(e) => {
+                                        props.setOrder({ ...props.order, cvv: e.target.value })
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Credit Card Hold Name</label>
+                                <input
+                                    class="form-control"
+                                    type="string"
+                                    placeholder="Enter credit card holder's name"
+                                    required
+                                    onChange={(e) => {
+                                        props.setOrder({ ...props.order, card_holder_name: e.target.value })
+                                    }}
+                                />
+                            </div>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+                <br></br>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Set up shipping</button>
+                </div>
+            </form>
         </div>
     )
 }
