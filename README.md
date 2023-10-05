@@ -48,6 +48,6 @@ Paul
     - Make sure the number of characters is correct for particular field (credit card is 16, cvv is 3)
     - Make sure the first three (not name) are ints
 - On productSummary (shopping cart) page
-  - Add item descriptions (not just Product i)
+  - ~~Add item descriptions (not just Product i)~~
   - Basic styling
 - Add face and description to About Us page

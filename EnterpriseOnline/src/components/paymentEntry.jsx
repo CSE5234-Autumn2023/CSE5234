@@ -35,12 +35,12 @@ const PaymentEntry = (props) => {
             </h1>
             <div>
                 {
-                    props.order.products.map((product) => {
+                    props.order.products.map((product, index) => {
                         return (
                             (product.quantity > 0)
                                 ?
                             <div className="container product-in-cart-summary">
-                                <ProductSummary product={product} />
+                                <ProductSummary product={product} order={props.order} setOrder={props.setOrder} index={index}  editable={true} />
                             </div>
                                 :
                             <></>

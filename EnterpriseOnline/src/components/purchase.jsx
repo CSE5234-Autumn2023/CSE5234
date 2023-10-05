@@ -11,20 +11,29 @@ const Purchase = (props) => {
                     props.order.products.map((product, index) => {
 
                         return (
-                                index % 2 === 0
+                            index % 3 === 0
                                 ?
                                 <div className="row">
-                                    <div className="col-md-6 product">
+                                    <div className="col-md-4 product">
                                         <Product product={product} index={index} order={props.order} setOrder={props.setOrder} />
                                     </div>
                                     {
-                                    props.order.products.length !== index+1
-                                    ?
-                                    <div className="col-md-6 product">
-                                        <Product product={props.order.products[index+1]} index={index+1} order={props.order} setOrder={props.setOrder} />
-                                    </div>
-                                    :
-                                    <></>
+                                        props.order.products.length !== index + 1
+                                        ?
+                                        <div className="col-md-4 product">
+                                            <Product product={props.order.products[index + 1]} index={index + 1} order={props.order} setOrder={props.setOrder} />
+                                        </div>
+                                        :
+                                        <></>
+                                    }
+                                    {
+                                        props.order.products.length !== index + 2
+                                        ?
+                                        <div className="col-md-4 product">
+                                            <Product product={props.order.products[index + 2]} index={index + 2} order={props.order} setOrder={props.setOrder} />
+                                        </div>
+                                        :
+                                        <></>
                                     }
                                 </div>
                                 :

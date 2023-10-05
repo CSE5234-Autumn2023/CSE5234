@@ -16,3 +16,16 @@
 .product-summary-details {
     margin: 40px 0px 40px;
 }
+
+.product-summary-quantity-value {
+    margin: 0px 5px;
+}
+
+.product-summary-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.subtract-btn {
+    margin-left: 10px;
+}

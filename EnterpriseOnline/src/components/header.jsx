@@ -23,6 +23,7 @@ function Header(props) {
         navigate('/purchase/paymentEntry');
     }
 
+
     return (
         <div class="header">
             <div class="d-flex flex-row">
