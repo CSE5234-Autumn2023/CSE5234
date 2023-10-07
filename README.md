@@ -24,15 +24,17 @@ Use bootstrap for style
  
 Nick
 - Header
-  - Style the navs into a grid of equal spacing
+  - ~~Style the navs into a grid of equal spacing~~
   - Change the "purchase" nav to "home page"
   - ~~Restrict navigation to checkout page if no products have a count over 0~~
 - Footer
   - Basic style update
   - Fix floating issue
   - Delete cart with props reset button (look at viewOrder)
-- About page
+- About Us page
 - Populate the text boxes if they already have values
+- Payment Entry Page
+  - Disable Set-Up Shipping Button if count == 0
 
 Paul
 - On the purchase page
