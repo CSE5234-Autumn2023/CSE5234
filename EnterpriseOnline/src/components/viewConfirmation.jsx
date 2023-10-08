@@ -14,10 +14,11 @@ const ViewConfirmation = () => {
             <h1>
                 {"Confirm Purchase"}
             </h1>
+            <div className="center" >
+                <p>Thank you for placing your order. Your confirmation code is 00000001</p>
 
-            <p>Thank you for placing your order. Your confirmation code is 00000001</p>
-
-            <button className='button' onClick={handleSubmit}>Go Back to Products Page</button>
+                <button className='btn btn-primary' onClick={handleSubmit}>Go Back to Products Page</button>
+            </div>
         </div>
     )
 }
