@@ -15,12 +15,6 @@ Use bootstrap for style
   - Update dropdown with css
   - Basic styling
   - ~~Credit Card Holder Name is not populating, either a problem on this page or another~~
-- On viewConfirmation page
-  - Basic styling
-- On ContactUs page
-  - Basic styling
-  - Put fake info on it
-- Add face and description to About Us page
  
 Nick
 - ~~Header~~
@@ -35,6 +29,11 @@ Nick
 - ~~Populate the text boxes if they already have values~~
 - ~~Payment Entry Page~~
   - ~~Disable Set-Up Shipping Button if count == 0~~
+- On viewConfirmation page
+  - Basic styling
+- On ContactUs page
+  - Basic styling
+  - Put fake info on it
 
 Paul
 - On the purchase page
