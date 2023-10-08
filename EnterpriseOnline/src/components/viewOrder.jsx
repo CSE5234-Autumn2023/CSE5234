@@ -81,7 +81,7 @@ const ViewOrder = (props) => {
                 cvv: {initialOrder.cvv}
             </p>
             <p>
-                Credit Card Holder Name: {initialOrder.credit_holder_name}
+                Credit Card Holder Name: {initialOrder.card_holder_name}
             </p>
 
             <h2>Shipping Information</h2>
@@ -107,7 +107,7 @@ const ViewOrder = (props) => {
                 Zip Code: {initialOrder.shippingMethod}
             </p>
 
-            <button className='button' onClick={handleSubmit}>Place Order</button>
+            <button className='button' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
         </div>
     )
 }

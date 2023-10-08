@@ -18,57 +18,61 @@ const ShippingEntry = (props) => {
             </h1>
             <form onSubmit={handleSubmit}>
                 <div className="offset-md-1 col-md-10">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
+                    <div className="row">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Address 1</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter address line 1"
                                     required
+                                    value={props.order.address_1}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, address_1: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Address 2</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter address line 2"
                                     required
+                                    value={props.order.address_2}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, address_2: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>City</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter city"
                                     required
+                                    value={props.order.city}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, city: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>State</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter state"
                                     required
+                                    value={props.order.state}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, state: e.target.value })
                                     }}
@@ -77,42 +81,45 @@ const ShippingEntry = (props) => {
                         </div>
                     </div>
                     <br></br>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
+                    <div className="row">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Zipcode</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter zipcode"
                                     required
+                                    value={props.order.zip}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, zip: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Email Address</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Confirm email address"
                                     required
+                                    value={props.order.email}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, email: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>
                                     Shipping Method 
                                     <select
                                         required
-                                        class="form-control"
+                                        className="form-control"
+                                        value={props.order.shippingMethod}
                                         onChange={(e) => {
                                             props.setOrder({ ...props.order, shippingMethod: e.target.value })
                                         }}
@@ -124,12 +131,12 @@ const ShippingEntry = (props) => {
                                 </label>
                             </div>
                         </div>
-                        <div class="col"></div>
+                        <div className="col"></div>
                     </div>
                 </div>
                 <br></br>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Set up shipping</button>
+                <div className="text-center">
+                    <button type="submit" className="btn btn-primary">Set up shipping</button>
                 </div>
             </form>
         </div>

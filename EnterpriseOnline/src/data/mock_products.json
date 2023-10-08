@@ -25,8 +25,8 @@
     },
     {
         "img_url": "../data/product4.jpg",
-        "img_alt_text": "Rubix Cube",
-        "name": "Rubix Cube",
+        "img_alt_text": "Rubik's Cube",
+        "name": "Rubik's Cube",
         "description": "Hardest Puzzle We Have",
         "price": 25,
         "quantity": 0

@@ -29,9 +29,9 @@ function App() {
 
 
   return (
-    <div class="App">
+    <div className="App">
       <Router>
-        <div class="content">
+        <div className="content">
           <Header order={order}/>
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
