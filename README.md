@@ -14,7 +14,7 @@ Use bootstrap for style
   - For state, it could be a dropdown similar to the shipping method
   - Update dropdown with css
   - Basic styling
-  - Credit Card Holder Name is not populating, either a problem on this page or another
+  - ~~Credit Card Holder Name is not populating, either a problem on this page or another~~
 - On viewConfirmation page
   - Basic styling
 - On ContactUs page
@@ -23,16 +23,16 @@ Use bootstrap for style
 - Add face and description to About Us page
  
 Nick
-- Header
+- ~~Header~~
   - ~~Style the navs into a grid of equal spacing~~
   - ~~Change the "purchase" nav to "home page"~~
   - ~~Restrict navigation to checkout page if no products have a count over 0~~
-- Footer
+- ~~Footer~~
   - ~~Basic style update~~
   - ~~Fix floating issue~~
   - ~~Delete cart with props reset button (look at viewOrder)~~
-- About Us page
-- Populate the text boxes if they already have values
+- ~~About Us page~~
+- ~~Populate the text boxes if they already have values~~
 - ~~Payment Entry Page~~
   - ~~Disable Set-Up Shipping Button if count == 0~~
 
@@ -42,7 +42,7 @@ Paul
   - ~~Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)~~
   - Basic uniform styling
   - If you want to change the flow, look at how the professor has his set up on the lab 6 sheet
-  - Change rubix's cube to rubik's cube
+  - ~~Change rubix's cube to rubik's cube~~
 - On the payment page
   - ~~Display total cost~~
   - Basic style update

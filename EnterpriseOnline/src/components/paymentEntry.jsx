@@ -66,57 +66,61 @@ const PaymentEntry = (props) => {
 
             <form onSubmit={handleSubmit}>
                 <div className="offset-md-1 col-md-10">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
+                    <div className="row">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Credit Card Number</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter credit card number"
                                     required
+                                    value={props.order.credit_card_number}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, credit_card_number: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Expiration Date</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter credit card expiration date"
                                     required
+                                    value={props.order.expir_date}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, expir_date: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>cvv</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter credit card cvv"
                                     required
+                                    value={props.order.cvv}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, cvv: e.target.value })
                                     }}
                                 />
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-group">
+                        <div className="col">
+                            <div className="form-group">
                                 <label>Credit Card Hold Name</label>
                                 <input
-                                    class="form-control"
+                                    className="form-control"
                                     type="string"
                                     placeholder="Enter credit card holder's name"
                                     required
+                                    value={props.order.card_holder_name}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, card_holder_name: e.target.value })
                                     }}
@@ -126,11 +130,11 @@ const PaymentEntry = (props) => {
                     </div>
                 </div>
                 <br></br>
-                <div class="text-center">
-                    <button type="submit" disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} class="btn btn-primary">Set up shipping</button>
+                <div className="text-center">
+                    <button type="submit" disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-primary">Set up shipping</button>
                 </div>
             </form>
-            <div class="text-center">
+            <div className="text-center">
                 <button onClick={emptyCartClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-secondary">Empty Cart</button>
             </div>
         </div>

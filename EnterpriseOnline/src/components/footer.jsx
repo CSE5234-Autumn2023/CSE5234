@@ -14,13 +14,13 @@ function Footer() {
     }
 
     return (
-        <div class="footer">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item">
-                    <a href="#" onClick={aboutUsClick} class="nav-link px-2 text-muted">About Us</a>
+        <div className="footer">
+            <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+                <li className="nav-item">
+                    <a href="#" onClick={aboutUsClick} className="nav-link px-2 text-muted">About Us</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#" onClick={contactUsClick} class="nav-link px-2 text-muted">Contact Us</a>
+                <li className="nav-item">
+                    <a href="#" onClick={contactUsClick} className="nav-link px-2 text-muted">Contact Us</a>
                 </li>
             </ul>
         </div>

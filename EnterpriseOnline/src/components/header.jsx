@@ -17,17 +17,17 @@ const Header = (props) => {
 
 
     return (
-        <div class="header">
-            <div class="d-flex flex-row">
-                <div class="p-2">
+        <div className="header">
+            <div className="d-flex flex-row">
+                <div className="p-2">
                     <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Home</button>
                 </div>
             </div>
-            <div class="title">
+            <div className="title">
                 <h1>Enterprise Online</h1>
             </div>
-            <div class="d-flex flex-row-reverse">
-                <div class="p-2">
+            <div className="d-flex flex-row-reverse">
+                <div className="p-2">
                     <button onClick={checkoutPageClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn'>Checkout</button>
                 </div>
             </div>
