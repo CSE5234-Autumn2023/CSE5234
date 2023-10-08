@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import mock_products from "../data/mock_products.json";
 import ProductSummary from './productSummary';
 import "./styles/paymentEntry.css";
 
@@ -7,6 +8,14 @@ import "./styles/paymentEntry.css";
 const PaymentEntry = (props) => {
 
     const navigate = useNavigate();
+
+    const emptyCartClick = (e) => {
+        props.setOrder({
+            products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
+        });
+        navigate('/purchase')
+    }
 
     const handleSubmit = () => {
         navigate('/purchase/shippingEntry');
@@ -118,9 +127,12 @@ const PaymentEntry = (props) => {
                 </div>
                 <br></br>
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Set up shipping</button>
+                    <button type="submit" disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} class="btn btn-primary">Set up shipping</button>
                 </div>
             </form>
+            <div class="text-center">
+                <button onClick={emptyCartClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-secondary">Empty Cart</button>
+            </div>
         </div>
     )
 }

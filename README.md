@@ -25,16 +25,16 @@ Use bootstrap for style
 Nick
 - Header
   - ~~Style the navs into a grid of equal spacing~~
-  - Change the "purchase" nav to "home page"
+  - ~~Change the "purchase" nav to "home page"~~
   - ~~Restrict navigation to checkout page if no products have a count over 0~~
 - Footer
-  - Basic style update
-  - Fix floating issue
-  - Delete cart with props reset button (look at viewOrder)
+  - ~~Basic style update~~
+  - ~~Fix floating issue~~
+  - ~~Delete cart with props reset button (look at viewOrder)~~
 - About Us page
 - Populate the text boxes if they already have values
-- Payment Entry Page
-  - Disable Set-Up Shipping Button if count == 0
+- ~~Payment Entry Page~~
+  - ~~Disable Set-Up Shipping Button if count == 0~~
 
 Paul
 - On the purchase page
@@ -42,7 +42,7 @@ Paul
   - ~~Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)~~
   - Basic uniform styling
   - If you want to change the flow, look at how the professor has his set up on the lab 6 sheet
-  - Fix Rubix cube spelling ??
+  - Change rubix's cube to rubik's cube
 - On the payment page
   - ~~Display total cost~~
   - Basic style update
