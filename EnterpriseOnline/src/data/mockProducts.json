@@ -38,5 +38,13 @@
         "description": "Icy Cold Milk",
         "price": 5,
         "quantity": 0
+    },
+    {
+        "img_url": "../data/product6.jpg",
+        "img_alt_text": "Basketball",
+        "name": "Signed Basketball by Praveen Kumar",
+        "description": "Certified by The Committee of Signings",
+        "price": 12000,
+        "quantity": 0
     }
 ]

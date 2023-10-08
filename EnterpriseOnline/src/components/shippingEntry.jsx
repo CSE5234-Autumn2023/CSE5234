@@ -92,7 +92,9 @@ const ShippingEntry = (props) => {
                                     required
                                     value={props.order.zip}
                                     onChange={(e) => {
-                                        props.setOrder({ ...props.order, zip: e.target.value })
+                                        if (!isNaN(+e.target.value)) {
+                                            props.setOrder({ ...props.order, zip: e.target.value })
+                                        }
                                     }}
                                 />
                             </div>

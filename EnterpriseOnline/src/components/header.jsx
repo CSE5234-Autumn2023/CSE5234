@@ -7,7 +7,11 @@ const Header = (props) => {
 
     const navigate = useNavigate();
 
-    const purchasePageClick = (e) => {
+    const homePageClick = () => {
+        navigate('/')
+    }
+
+    const shopPageClick = () => {
         navigate('/purchase')
     }
 
@@ -20,10 +24,15 @@ const Header = (props) => {
         <div className="header">
             <div className="d-flex flex-row">
                 <div className="p-2">
-                    <button onClick={purchasePageClick} className='btn btn-light checkout-btn'>Home</button>
+                    <button onClick={homePageClick} className='btn btn-light checkout-btn'>Home</button>
                 </div>
             </div>
-            <div className="title">
+            <div className="d-flex flex-row">
+                <div className="p-2">
+                    <button onClick={shopPageClick} className='btn btn-light checkout-btn'>Shop</button>
+                </div>
+            </div>
+            <div className="header-title">
                 <h1>Enterprise Online</h1>
             </div>
             <div className="d-flex flex-row-reverse">

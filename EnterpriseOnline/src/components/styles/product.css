@@ -9,7 +9,8 @@ label {
 }
 
 .product-confirmation {
-    pointer-events: none;
+    color: rgb(2, 156, 2);
+    font-weight: bold;
 }
 
 .add-to-cart-btn {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import mock_products from "../data/mock_products.json";
+import mock_products from "../data/mockProducts.json";
 import ProductSummary from './productSummary';
 import "./styles/paymentEntry.css";
 
@@ -9,12 +9,13 @@ const PaymentEntry = (props) => {
 
     const navigate = useNavigate();
 
-    const emptyCartClick = (e) => {
+    const emptyCartClick = async () => {
+        localStorage.clear();
         props.setOrder({
             products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
         });
-        navigate('/purchase')
+        navigate('/purchase');
     }
 
     const handleSubmit = () => {
@@ -72,46 +73,50 @@ const PaymentEntry = (props) => {
                                 <label>Credit Card Number</label>
                                 <input
                                     className="form-control"
-                                    type="number"
-                                    min="1000000000000000"
-                                    max="9999999999999999"
+                                    type="string"
                                     placeholder="Enter credit card number"
                                     required
                                     value={props.order.credit_card_number}
+                                    minLength={16}
+                                    maxLength={16}
                                     onChange={(e) => {
-                                        props.setOrder({ ...props.order, credit_card_number: e.target.value })
+                                        if (!isNaN(+e.target.value)) {
+                                            props.setOrder({ ...props.order, credit_card_number: e.target.value });
+                                        }
                                     }}
                                 />
                             </div>
                         </div>
                         <div className="col">
                             <div className="form-group">
-                                <label>Expiration Date</label>
+                                <label>Credit Card Expiration Date</label>
                                 <input
                                     className="form-control"
-                                    type="date"
-                                    placeholder="Enter credit card expiration date"
+                                    type="month"
+                                    min={String(new Date().getFullYear())+"-"+String(new Date().getMonth()+1)}
                                     required
                                     value={props.order.expir_date}
                                     onChange={(e) => {
-                                        props.setOrder({ ...props.order, expir_date: e.target.value })
+                                        props.setOrder({ ...props.order, expir_date: e.target.value });
                                     }}
                                 />
                             </div>
                         </div>
                         <div className="col">
                             <div className="form-group">
-                                <label>cvv</label>
+                                <label>Credit card CVV</label>
                                 <input
                                     className="form-control"
-                                    type="number"
-                                    min="100"
-                                    max="999"
+                                    type="string"
                                     placeholder="Enter credit card cvv"
                                     required
                                     value={props.order.cvv}
+                                    minLength={3}
+                                    maxLength={3}
                                     onChange={(e) => {
-                                        props.setOrder({ ...props.order, cvv: e.target.value })
+                                        if (!isNaN(+e.target.value)) {
+                                            props.setOrder({ ...props.order, cvv: e.target.value });
+                                        }
                                     }}
                                 />
                             </div>
@@ -126,7 +131,7 @@ const PaymentEntry = (props) => {
                                     required
                                     value={props.order.card_holder_name}
                                     onChange={(e) => {
-                                        props.setOrder({ ...props.order, card_holder_name: e.target.value })
+                                        props.setOrder({ ...props.order, card_holder_name: e.target.value });
                                     }}
                                 />
                             </div>

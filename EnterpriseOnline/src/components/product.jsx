@@ -20,19 +20,10 @@ function Product(props) {
 
     return (
         <div className="product-details">
-            <label className="product-name">{props.product.name}</label>
+            <div className="product-name"><strong>{props.product.name}</strong></div>
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>
-            {
-                addedToCartConfirmation
-                    ?
-                <button
-                    className="btn btn-success add-to-cart-btn product-confirmation"
-                >
-                    Added to Cart
-                </button>
-                    :
-                <button
+            <button
                     onClick={() => {
                         setAddedToCartConfirmation(true);
                         let updated_products = props.order.products;
@@ -44,8 +35,13 @@ function Product(props) {
                 >
                     Add to Cart
                 </button>
+            {
+                addedToCartConfirmation
+                    ?
+                    <div className="product-quantity product-confirmation">Quantity in Cart - {props.product.quantity}</div>
+                    :
+                <div className="product-quantity">Quantity in Cart - {props.product.quantity}</div>
             }
-            <div className="product-quantity">Quantity in Cart - {props.product.quantity}</div>
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import mock_products from "../data/mock_products.json";
+import mock_products from "../data/mockProducts.json";
 import ProductSummary from './productSummary';
 import "./styles/viewOrder.css";
 
