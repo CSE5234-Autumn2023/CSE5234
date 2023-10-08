@@ -87,7 +87,7 @@ const ShippingEntry = (props) => {
                                 <label>Zipcode</label>
                                 <input
                                     className="form-control"
-                                    type="string"
+                                    type="number"
                                     placeholder="Enter zipcode"
                                     required
                                     value={props.order.zip}

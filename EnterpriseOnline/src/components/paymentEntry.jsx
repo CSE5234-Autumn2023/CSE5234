@@ -72,7 +72,7 @@ const PaymentEntry = (props) => {
                                 <label>Credit Card Number</label>
                                 <input
                                     className="form-control"
-                                    type="string"
+                                    type="number"
                                     placeholder="Enter credit card number"
                                     required
                                     value={props.order.credit_card_number}
@@ -87,7 +87,7 @@ const PaymentEntry = (props) => {
                                 <label>Expiration Date</label>
                                 <input
                                     className="form-control"
-                                    type="string"
+                                    type="date"
                                     placeholder="Enter credit card expiration date"
                                     required
                                     value={props.order.expir_date}
@@ -102,7 +102,7 @@ const PaymentEntry = (props) => {
                                 <label>cvv</label>
                                 <input
                                     className="form-control"
-                                    type="string"
+                                    type="number"
                                     placeholder="Enter credit card cvv"
                                     required
                                     value={props.order.cvv}
