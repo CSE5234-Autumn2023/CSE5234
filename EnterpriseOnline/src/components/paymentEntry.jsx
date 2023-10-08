@@ -73,6 +73,8 @@ const PaymentEntry = (props) => {
                                 <input
                                     className="form-control"
                                     type="number"
+                                    max="9999999999999999"
+                                    min="0"
                                     placeholder="Enter credit card number"
                                     required
                                     value={props.order.credit_card_number}
@@ -103,6 +105,8 @@ const PaymentEntry = (props) => {
                                 <input
                                     className="form-control"
                                     type="number"
+                                    min="0"
+                                    max="999"
                                     placeholder="Enter credit card cvv"
                                     required
                                     value={props.order.cvv}
