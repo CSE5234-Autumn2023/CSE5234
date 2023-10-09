@@ -51,7 +51,7 @@ const ViewOrder = (props) => {
                         return (
                             (product.quantity > 0)
                                 ?
-                            <div className="container product-in-cart-summary">
+                            <div className="container product-in-cart-summary" key={index}>
                                 <ProductSummary product={product} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
                             </div>
                                 :
@@ -61,53 +61,76 @@ const ViewOrder = (props) => {
                 }
             </div>
 
-            <div>
+            <div className="center">
                 {
                     calculateTotalCost()
                 }
             </div>
 
-            <hr />
+            <div className="center">
+                <h2>Payment Information</h2>
+            </div>
+            <table className="table table-bordered justify-content-center">
+                <tbody>
+                <tr>
+                    <th className="text-center" scope="row">
+                        Credit Card Number:
+                    </th>
+                    <td className="textStart">{initialOrder.credit_card_number}</td>
+                </tr>
+                <tr>
+                    <th className="text-center" scope="row">
+                        Expiration Date:
+                    </th>
+                    <td className="textStart">{initialOrder.expir_date}</td>
+                </tr>
+                <tr>
+                    <th className="text-center" scope="row">
+                        cvv:
+                    </th>
+                    <td className="textStart">{initialOrder.cvv}</td>
+                </tr>
+                <tr>
+                    <th className="text-center" scope="row">
+                        Credit Card Holder Name:
+                    </th>
+                    <td className="textStart">{initialOrder.card_holder_name}</td>
+                </tr>
+                </tbody>
+            </table>
 
 
-            <h2>Payment Information</h2>
-            <p>
-                Credit Card Number: {initialOrder.credit_card_number}
-            </p>
-            <p>
-                Experation Date: {initialOrder.expir_date}
-            </p>
-            <p>
-                cvv: {initialOrder.cvv}
-            </p>
-            <p>
-                Credit Card Holder Name: {initialOrder.card_holder_name}
-            </p>
-
-            <h2>Shipping Information</h2>
-            <p>
-                Address 1: {initialOrder.address_1}
-            </p>
-            <p>
-                Address 2: {initialOrder.address_2}
-            </p>
-            <p>
-                City: {initialOrder.city}
-            </p>
-            <p>
-                State: {initialOrder.state}
-            </p>
-            <p>
-                Zip Code: {initialOrder.zip}
-            </p>
-            <p>
-                Email Address: {initialOrder.email}
-            </p>
-            <p>
-                Zip Code: {initialOrder.shippingMethod}
-            </p>
-
-            <button className='button' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+                <h2>Shipping Information</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <td className="text-center" scope="row">
+                        Address 1: {initialOrder.address_1}
+                    </td>
+                </tr>
+                <td className="text-center" scope="row">
+                    Address 2: {initialOrder.address_2}
+                </td>
+                <td className="text-center" scope="row">
+                    City: {initialOrder.city}
+                </td>
+                <td className="text-center" scope="row">
+                    State: {initialOrder.state}
+                </td>
+                <td className="text-center" scope="row">
+                    Zip Code: {initialOrder.zip}
+                </td>
+                <td className="text-center" scope="row">
+                    Email Address: {initialOrder.email}
+                </td>
+                <td className="text-center" scope="row">
+                    Zip Code: {initialOrder.shippingMethod}
+                </td>
+                </tbody>
+            </table>
+            <div>
+                <button className='button' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+            </div>
         </div>
     )
 }
