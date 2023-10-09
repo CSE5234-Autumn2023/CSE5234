@@ -36,8 +36,13 @@ function AboutUs() {
                     </div>
                     <div className="col">
                         <div className="center">
+                            <img src={require("../data/AboutUsPhotos/Jason.jpg")} alt="Jason Pic" height="240" width="200"/>
                             <h4>Jason Weible</h4>
                             <p>CFO</p>
+                        </div>
+                        <div>
+                            <p>Jason is a 2nd year PhD student in Computer Science & Engineering</p>
+                            <p>He brings the memes.</p>
                         </div>
                         <p></p>
                     </div>

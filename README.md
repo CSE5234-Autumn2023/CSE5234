@@ -6,21 +6,21 @@ All styles should be consistent, so for colors and stuff that should be standard
 Use bootstrap for style
 
 # Things to do
-- On view order page
-  - Add item descriptions (not just Product i)
-  - Not style, but could you restrict input
-    - Make sure the number of characters is correct for particular field (zipcode)
-    - Make sure the first three (not name) are ints
-  - For state, it could be a dropdown similar to the shipping method
-  - Update dropdown with css
-  - Basic styling
+- ~~On view order page~~
+  - ~~Add item descriptions (not just Product i)~~
+  - ~~Not style, but could you restrict input~~
+    - ~~Make sure the number of characters is correct for particular field (zipcode)~~
+    - ~~Make sure the first three (not name) are ints~~
+  - ~~For state, it could be a dropdown similar to the shipping method~~
+  - ~~Update dropdown with css~~
+  - ~~Basic styling~~
   - ~~Credit Card Holder Name is not populating, either a problem on this page or another~~
-- On viewConfirmation page
-  - Basic styling
-- On ContactUs page
-  - Basic styling
-  - Put fake info on it
-- Add face to about us page
+- ~~On viewConfirmation page~~
+  - ~~Basic styling~~
+- ~~On ContactUs page~~
+  - ~~Basic styling~~
+  - ~~Put fake info on it~~
+- ~~Add face to about us page~~
  
 Nick
 - ~~Header~~
