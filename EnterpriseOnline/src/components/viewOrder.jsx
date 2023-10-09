@@ -100,36 +100,61 @@ const ViewOrder = (props) => {
             </table>
 
 
-                <h2>Shipping Information</h2>
-            <table>
-                <tbody>
-                <tr>
-                    <td className="text-center" scope="row">
-                        Address 1: {initialOrder.address_1}
-                    </td>
-                </tr>
-                <td className="text-center" scope="row">
-                    Address 2: {initialOrder.address_2}
-                </td>
-                <td className="text-center" scope="row">
-                    City: {initialOrder.city}
-                </td>
-                <td className="text-center" scope="row">
-                    State: {initialOrder.state}
-                </td>
-                <td className="text-center" scope="row">
-                    Zip Code: {initialOrder.zip}
-                </td>
-                <td className="text-center" scope="row">
-                    Email Address: {initialOrder.email}
-                </td>
-                <td className="text-center" scope="row">
-                    Zip Code: {initialOrder.shippingMethod}
-                </td>
-                </tbody>
-            </table>
-            <div>
-                <button className='button' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+            <h2 className="center">Shipping Information</h2>
+                <table className="table table-bordered justify-content-center">
+                    <tbody>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                Address 1:
+                            </th>
+                            <td>{initialOrder.address_1}</td>
+                        </tr>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                Address 2:
+                            </th>
+                            <td>{initialOrder.address_2}</td>
+                        </tr>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                City:
+                            </th>
+                            <td>{initialOrder.city}</td>
+                        </tr>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                State:
+                            </th>
+                            <td>{initialOrder.state}</td>
+                        </tr>
+                        <tr>
+
+
+                            <th className="text-center" scope="row">
+                                Zip Code:
+                            </th>
+                            <td>
+                                {initialOrder.zip}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                Email Address:
+                            </th>
+                            <td>
+                                {initialOrder.email}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th className="text-center" scope="row">
+                                Zip Code:
+                            </th>
+                            <td>{initialOrder.shippingMethod}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div className="center">
+                <button className='btn btn-primary' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
             </div>
         </div>
     )
