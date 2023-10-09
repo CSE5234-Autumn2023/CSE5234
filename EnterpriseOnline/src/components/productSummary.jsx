@@ -8,7 +8,7 @@ function ProductSummary(props) {
         <div className="col-md-6 product-summary-details">
             <div className="product-summary-line">
                 <p className="product-summary-name"><strong>{props.product.name}</strong></p>
-                <p className="product-summary-quantity">Quantity:
+                <div className="product-summary-quantity">Quantity:
                     <button
                         className="btn btn-outline-primary btn-sm subtract-btn"
                         onClick={() => {
@@ -36,7 +36,7 @@ function ProductSummary(props) {
                     >
                         +
                     </button>
-                </p>
+                </div>
             </div>
             <div className="product-summary-line">
                 <p className="product-summary-description">{props.product.description}</p>
