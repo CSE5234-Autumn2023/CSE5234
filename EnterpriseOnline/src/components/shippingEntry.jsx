@@ -88,6 +88,8 @@ const ShippingEntry = (props) => {
                                 <input
                                     className="form-control"
                                     type="number"
+                                    minLength={5}
+                                    maxLength={5}
                                     placeholder="Enter zipcode"
                                     required
                                     value={props.order.zip}

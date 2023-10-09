@@ -32,7 +32,7 @@ const PaymentEntry = (props) => {
         })
 
         return (
-            <div className="col-md-6 total-cost">
+            <div className="center">
                 Total Cost: ${total_cost}
             </div>
         )
@@ -64,6 +64,8 @@ const PaymentEntry = (props) => {
                     calculateTotalCost()
                 }
             </div>
+
+            <br />
 
             <form onSubmit={handleSubmit}>
                 <div className="offset-md-1 col-md-10">
