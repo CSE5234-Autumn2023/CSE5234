@@ -10,7 +10,8 @@ import Footer from './components/footer';
 import Header from './components/header';
 import AboutUs from './components/aboutUs';
 import ContactUs from './components/contactUs';
-import mock_products from "./data/mock_products.json";
+import Home from './components/home';
+import mock_products from "./data/mockProducts.json";
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
           <Header order={order}/>
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
-            <Route path="/" element={<Navigate replace to="/purchase" />} />
+            <Route path="/" element={<Home />} />
             <Route path="/purchase/paymentEntry" element={<PaymentEntry order={order} setOrder={setOrder} />} />
             <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} />} />
             <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} />} />
