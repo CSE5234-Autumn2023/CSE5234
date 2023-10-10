@@ -2,54 +2,42 @@
 This is an enterprise web project.
 
 # NOTE
-All styles should be consistent, so for colors and stuff that should be standardized, add that to the app.css. Other specific stuff, maybe like a grid for layout, should be within the pages .css file.
-Use bootstrap for style
+- For post requests when sending a json with order items etc, send it in the request body.
+- If you are only sending one word in the request params for example to search for an item id or name, just use a query string.
+  You can see examples of how to use each in the api already.
+- Also downloading and using Postman is a really easy way to test all of these requests before we start using them with the frontend,
+  if you need help just text and I can send some pictures on how to use it.
 
 # Things to do
-- ~~On view order page~~
-  - ~~Add item descriptions (not just Product i)~~
-  - ~~Not style, but could you restrict input~~
-    - ~~Make sure the number of characters is correct for particular field (zipcode)~~
-    - ~~Make sure the first three (not name) are ints~~
-  - ~~For state, it could be a dropdown similar to the shipping method~~
-  - ~~Update dropdown with css~~
-  - ~~Basic styling~~
-  - ~~Credit Card Holder Name is not populating, either a problem on this page or another~~
-- ~~On viewConfirmation page~~
-  - ~~Basic styling~~
-- ~~On ContactUs page~~
-  - ~~Basic styling~~
-  - ~~Put fake info on it~~
-- ~~Add face to about us page~~
- 
-Nick
-- ~~Header~~
-  - ~~Style the navs into a grid of equal spacing~~
-  - ~~Change the "purchase" nav to "home page"~~
-  - ~~Restrict navigation to checkout page if no products have a count over 0~~
-- ~~Footer~~
-  - ~~Basic style update~~
-  - ~~Fix floating issue~~
-  - ~~Delete cart with props reset button (look at viewOrder)~~
-- ~~About Us page~~
-- ~~Populate the text boxes if they already have values~~
-- ~~Payment Entry Page~~
-  - ~~Disable Set-Up Shipping Button if count == 0~~
+- Update JSON mock products in api to include inventory information such as quantity in inventory rather than quantity in cart
+- Fix API URLs to match lab documentation
+- Create a Microservice with Web APIs that manages inventory of items that your company sells.
+  - Refactor the presentation tier from the previous lab to use the inventory-management
+    service to obtain and display items available for sale
+- Create a microservice with Web APIs that will handle and process customer order. The
+requirements are
+  - The order-processing microservice will interact with inventory-management service to
+    check if the quantity requested by the customer is available to sell. If enough quantity
+    exists in the warehouse, the order-processing microservice will return a valid
+    confirmation number. If any item is not available in sufficient quantity, an error code
+    will be returned to the caller.
+  - OPTIONAL – return available quantity to presentation tier, so that it can prompt the user
+  accordingly, and give them a choice to select fewer items.
+- At the end of this lab, there should be nothing hardcoded in the presentation tier.
+
+  
 
 Paul
-- ~~On the purchase page~~
-  - ~~Make the items horizontal instead of vertical~~
-  - ~~Add the count next to the item if it has been added to cart (idk what it should look like, so make it your own. If count doesn't look good, you could do color change or something)~~
-  - ~~Basic uniform styling~~
-  - ~~If you want to change the flow, look at how the professor has his set up on the lab 6 sheet~~
-  - ~~Change rubix's cube to rubik's cube~~
-- ~~On the payment page~~
-  - ~~Display total cost~~
-  - ~~Basic style update~~
-  - ~~Not style, but could you restrict input~~
-    - ~~Make sure the number of characters is correct for particular field (credit card is 16, cvv is 3)~~
-    - ~~Make sure the first three (not name) are ints~~
-- ~~On productSummary (shopping cart) page~~
-  - ~~Add item descriptions (not just Product i)~~
-  - ~~Basic styling~~
-- ~~Add face and description to About Us page~~
+- Update presentation tier order state to better store cart data
+- Create a Microservice with Web APIs that manages inventory of items that your company sells.
+  - ~~The inventory-management microservice will support a GET method which will return all
+    the items available in the inventory (warehouse). This API will return data in JSON
+    format. The available items can be hard coded within the microservice.~~
+  - ~~The microservice will support a GET method which will return all the items available in
+    the inventory (warehouse) for a given item Id and/or name, in JSON format~~
+- Create a microservice with Web APIs that will handle and process customer order. The
+requirements are
+  - The order-processing microservice will support a POST method which will accept a
+    customer order in JSON format. The order will contain list of items, payment details, and
+    requested shipping information. ALL DONE EXCEPT NEED TO INCLUDE PAYMENT DETAILS AND SHIPPING.
+    /postOrder ALREADY ACCEPTS A LIST OF ITEMS
