@@ -1,20 +1,21 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import mock_products from "../data/mockProducts.json";
 import ProductSummary from './productSummary';
 import "./styles/paymentEntry.css";
+import mock_products from "../data/mockProducts.json";
 
 
 const PaymentEntry = (props) => {
 
     const navigate = useNavigate();
 
-    const emptyCartClick = async () => {
+    const emptyCartClick = () => {
         localStorage.clear();
         props.setOrder({
             products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
-            address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
+            address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: ''
         });
+
         navigate('/purchase');
     }
 

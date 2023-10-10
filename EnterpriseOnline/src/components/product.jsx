@@ -34,7 +34,7 @@ function Product(props) {
                     className="btn btn-primary add-to-cart-btn"
                 >
                     Add to Cart
-                </button>
+            </button>
             {
                 addedToCartConfirmation
                     ?
