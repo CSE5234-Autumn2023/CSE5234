@@ -9,11 +9,13 @@ This is an enterprise web project.
   if you need help just text and I can send some pictures on how to use it.
 
 # Things to do
-- Update JSON mock products in api to include inventory information such as quantity in inventory rather than quantity in cart
 - Fix API URLs to match lab documentation
 - Create a Microservice with Web APIs that manages inventory of items that your company sells.
   - Refactor the presentation tier from the previous lab to use the inventory-management
     service to obtain and display items available for sale
+
+ Nick
+- Update JSON mock products in api to include inventory information such as quantity in inventory rather than quantity in cart
 - Create a microservice with Web APIs that will handle and process customer order. The
 requirements are
   - The order-processing microservice will interact with inventory-management service to
@@ -24,8 +26,7 @@ requirements are
   - OPTIONAL – return available quantity to presentation tier, so that it can prompt the user
   accordingly, and give them a choice to select fewer items.
 - At the end of this lab, there should be nothing hardcoded in the presentation tier.
-
-  
+ 
 
 Paul
 - Update presentation tier order state to better store cart data
