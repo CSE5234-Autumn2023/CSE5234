@@ -26,6 +26,13 @@ function Product(props) {
             <button
                     onClick={() => {
                         setAddedToCartConfirmation(true);
+                        const { length } = arr;
+                        const id = length + 1;
+                        const found = arr.some(el => el.username === name);
+                        if (!found) arr.push({ id, username: name });
+                        return arr;
+                        if ()
+
                         let updated_products = props.order.products;
                         updated_products[props.index].quantity = props.product.quantity + 1;
                         props.setOrder({ ...props.order, products: updated_products })

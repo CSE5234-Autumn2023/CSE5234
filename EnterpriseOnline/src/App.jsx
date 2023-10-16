@@ -16,9 +16,11 @@ import mock_products from "./data/mockProducts.json";
 function App() {
 
   const [order, setOrder] = useState({
-    products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+    cart: [{"name": "Camera", "quantity": 1}, {"name": "Milk", "quantity": 2}], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
     address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
   });
+
+  const [products, setProducts] = useState(mock_products);
 
 
   useEffect(() => {
