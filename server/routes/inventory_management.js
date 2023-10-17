@@ -7,6 +7,7 @@ const router = express.Router();
 
 let products = [
     {
+        "id": 0,
         "img_url": "../data/product1.jpg",
         "img_alt_text": "Camera",
         "name": "Camera",
@@ -15,6 +16,7 @@ let products = [
         "inventoryQuantity": 2
     },
     {
+        "id": 1,
         "img_url": "../data/product2.jpg",
         "img_alt_text": "Watch",
         "name": "Watch",
@@ -23,6 +25,7 @@ let products = [
         "quantity": 0
     },
     {
+        "id": 2,
         "img_url": "../data/product3.jpg",
         "img_alt_text": "Headphones",
         "name": "Headphones",
@@ -30,7 +33,8 @@ let products = [
         "price": 200,
         "quantity": 0
     },
-    {
+    {   
+        "id": 3,
         "img_url": "../data/product4.jpg",
         "img_alt_text": "Rubik's Cube",
         "name": "Rubik's Cube",
@@ -39,6 +43,7 @@ let products = [
         "quantity": 0
     },
     {
+        "id": 4,
         "img_url": "../data/product5.jpg",
         "img_alt_text": "Milk",
         "name": "Milk",
@@ -47,6 +52,7 @@ let products = [
         "quantity": 0
     },
     {
+        "id": 5,
         "img_url": "../data/product6.jpg",
         "img_alt_text": "Basketball",
         "name": "Signed Basketball by Praveen Kumar",

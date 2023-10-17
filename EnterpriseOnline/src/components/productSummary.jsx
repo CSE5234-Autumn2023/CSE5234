@@ -12,25 +12,28 @@ function ProductSummary(props) {
                     <button
                         className="btn btn-outline-primary btn-sm subtract-btn"
                         onClick={() => {
-                            let updated_products = props.order.products;
-                            updated_products[props.index].quantity = props.product.quantity - 1;
-                            props.setOrder({ ...props.order, products: updated_products })
+                            let updated_cart = props.order.cart;
+                            let product = updated_cart.find(elem => elem.id === props.product.id);
+                            if (product.quantity === 1) {
+                                updated_cart.splice(updated_cart.findIndex(elem => elem.id === props.product.id), 1);
+                            } else {
+                                product.quantity -= 1;
+                            }
+                            props.setOrder({ ...props.order, cart: updated_cart })
                             localStorage.setItem('order', JSON.stringify(props.order));
                         }}
                     >
                         -
                     </button>
                     <div className="product-summary-quantity-value">
-                        {props.product.quantity}
+                        {props.quantity}
                     </div>
                     <button
                         className="btn btn-outline-primary btn-sm add-btn"
                         onClick={() => {
-                            let updated_products = props.order.products;
-                            console.log(updated_products)
-                            console.log(props.index)
-                            updated_products[props.index].quantity = props.product.quantity + 1;
-                            props.setOrder({ ...props.order, products: updated_products })
+                            let updated_cart = props.order.cart;                            
+                            updated_cart.find(elem => elem.id === props.product.id).quantity += 1;
+                            props.setOrder({ ...props.order, cart: updated_cart })
                             localStorage.setItem('order', JSON.stringify(props.order));
                         }}
                     >
@@ -40,7 +43,7 @@ function ProductSummary(props) {
             </div>
             <div className="product-summary-line">
                 <p className="product-summary-description">{props.product.description}</p>
-                <p className="product-summary-cost">Cost: ${props.product.price * props.product.quantity}</p>
+                <p className="product-summary-cost">Cost: ${props.product.price * props.quantity}</p>
             </div>
         </div>
     )

@@ -12,7 +12,7 @@ const PaymentEntry = (props) => {
     const emptyCartClick = () => {
         localStorage.clear();
         props.setOrder({
-            products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: ''
         });
 
@@ -28,14 +28,31 @@ const PaymentEntry = (props) => {
     const calculateTotalCost = () => {
         let total_cost = 0
 
-        props.order.products.map((product) => {
-            total_cost += product.price * product.quantity;
+        props.order.cart.map((product) => {
+            total_cost += props.products[product.id].price * product.quantity;
         })
 
         return (
             <div className="center">
                 Total Cost: ${total_cost}
             </div>
+        )
+    }
+
+    const displayCart = () => {
+
+        if (props.order.cart.length === 0) {
+            navigate('/purchase');
+        }
+
+        return (
+            props.order.cart.map((product, index) => {
+                return (
+                    <div className="container product-in-cart-summary">
+                        <ProductSummary product={props.products[product.id]} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={true} />
+                    </div>
+                )
+            })
         )
     }
     
@@ -45,25 +62,11 @@ const PaymentEntry = (props) => {
                 {title}
             </h1>
             <div>
-                {
-                    props.order.products.map((product, index) => {
-                        return (
-                            (product.quantity > 0)
-                                ?
-                            <div className="container product-in-cart-summary">
-                                <ProductSummary product={product} order={props.order} setOrder={props.setOrder} index={index}  editable={true} />
-                            </div>
-                                :
-                            <></>
-                        )
-                    })
-                }
+                {displayCart()}
             </div>
 
             <div>
-                {
-                    calculateTotalCost()
-                }
+                {calculateTotalCost()}
             </div>
 
             <br />
@@ -143,11 +146,11 @@ const PaymentEntry = (props) => {
                 </div>
                 <br></br>
                 <div className="text-center">
-                    <button type="submit" disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-primary">Set up shipping</button>
+                    <button type="submit" disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-primary">Set up shipping</button>
                 </div>
             </form>
             <div className="text-center">
-                <button onClick={emptyCartClick} disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-secondary">Empty Cart</button>
+                <button onClick={emptyCartClick} disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-secondary">Empty Cart</button>
             </div>
         </div>
     )

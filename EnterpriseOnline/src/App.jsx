@@ -47,12 +47,12 @@ function App() {
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} products={products} />} />
             <Route path="/" element={<Home />} />
-            <Route path="/purchase/paymentEntry" element={<PaymentEntry order={order} setOrder={setOrder} />} />
-            <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} />} />
-            <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} />} />
-            <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} />} />
-            <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} />} />
-            <Route path="/contactUs" element={<ContactUs order={order} setOrder={setOrder} />} />
+            <Route path="/purchase/paymentEntry" element={<PaymentEntry order={order} setOrder={setOrder} products={products} />} />
+            <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} products={products} />} />
+            <Route path="/purchase/viewOrder" element={<ViewOrder order={order} setOrder={setOrder} products={products} />} />
+            <Route path="/purchase/viewConfirmation" element={<ViewConfirmation order={order} setOrder={setOrder} products={products} />} />
+            <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} products={products} />} />
+            <Route path="/contactUs" element={<ContactUs order={order} setOrder={setOrder} products={products} />} />
           </Routes>
           <Footer />
         </div>
