@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import mock_products from "../data/mockProducts.json";
 import ProductSummary from './productSummary';
 import "./styles/viewOrder.css";
 
@@ -14,7 +13,7 @@ const ViewOrder = (props) => {
 
     const handleSubmit = () => {
         props.setOrder({
-            products: mock_products, credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+            cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
         });
 
@@ -25,14 +24,27 @@ const ViewOrder = (props) => {
     const calculateTotalCost = () => {
         let total_cost = 0
 
-        props.order.products.map((product) => {
-            total_cost += product.price * product.quantity;
+        props.order.cart.map((product) => {
+            total_cost += props.products.find(elem => elem.id === product.id).price * product.quantity;
         })
 
         return (
             <div className="total-cost">
                 <p className="product-in-cart-line">Total Cost: ${total_cost}</p>
             </div>
+        )
+    }
+
+    const displayCart = () => {
+
+        return (
+            props.order.cart.map((product, index) => {
+                return (
+                    <div className="container product-in-cart-summary" key={index}>
+                        <ProductSummary product={props.products.find(elem => elem.id === product.id)} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
+                    </div>
+                )
+            })
         )
     }
 
@@ -46,25 +58,11 @@ const ViewOrder = (props) => {
             <h2>Products</h2>
 
             <div>
-                {
-                    props.order.products.map((product, index) => {
-                        return (
-                            (product.quantity > 0)
-                                ?
-                            <div className="container product-in-cart-summary" key={index}>
-                                <ProductSummary product={product} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
-                            </div>
-                                :
-                            <></>
-                        )
-                    })
-                }
+                {(props.products.length > 0) ? displayCart() : <></>}
             </div>
 
-            <div className="center">
-                {
-                    calculateTotalCost()
-                }
+            <div>
+                {(props.products.length > 0) ? calculateTotalCost() : <></>}
             </div>
 
             <div className="center">
@@ -86,7 +84,7 @@ const ViewOrder = (props) => {
                 </tr>
                 <tr>
                     <th className="text-center" scope="row">
-                        cvv:
+                        CVV:
                     </th>
                     <td className="textStart">{initialOrder.cvv}</td>
                 </tr>
@@ -154,7 +152,7 @@ const ViewOrder = (props) => {
                     </tbody>
                 </table>
             <div className="center">
-                <button className='btn btn-primary' disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+                <button className='btn btn-primary' disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
             </div>
         </div>
     )

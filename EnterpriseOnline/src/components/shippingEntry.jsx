@@ -41,7 +41,6 @@ const ShippingEntry = (props) => {
                                     className="form-control"
                                     type="string"
                                     placeholder="Enter address line 2"
-                                    required
                                     value={props.order.address_2}
                                     onChange={(e) => {
                                         props.setOrder({ ...props.order, address_2: e.target.value })
@@ -87,7 +86,7 @@ const ShippingEntry = (props) => {
                                 <label>Zipcode</label>
                                 <input
                                     className="form-control"
-                                    type="number"
+                                    type="string"
                                     minLength={5}
                                     maxLength={5}
                                     placeholder="Enter zipcode"

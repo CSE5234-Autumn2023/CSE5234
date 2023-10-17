@@ -29,7 +29,7 @@ const PaymentEntry = (props) => {
         let total_cost = 0
 
         props.order.cart.map((product) => {
-            total_cost += props.products[product.id].price * product.quantity;
+            total_cost += props.products.find(elem => elem.id === product.id).price * product.quantity;
         })
 
         return (
@@ -49,7 +49,7 @@ const PaymentEntry = (props) => {
             props.order.cart.map((product, index) => {
                 return (
                     <div className="container product-in-cart-summary">
-                        <ProductSummary product={props.products[product.id]} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={true} />
+                        <ProductSummary product={props.products.find(elem => elem.id === product.id)} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
                     </div>
                 )
             })
@@ -61,12 +61,13 @@ const PaymentEntry = (props) => {
             <h1>
                 {title}
             </h1>
+
             <div>
-                {displayCart()}
+                {(props.products.length > 0) ? displayCart() : <></>}
             </div>
 
             <div>
-                {calculateTotalCost()}
+                {(props.products.length > 0) ? calculateTotalCost() : <></>}
             </div>
 
             <br />
@@ -110,7 +111,7 @@ const PaymentEntry = (props) => {
                         </div>
                         <div className="col">
                             <div className="form-group">
-                                <label>Credit card CVV</label>
+                                <label>CVV</label>
                                 <input
                                     className="form-control"
                                     type="string"

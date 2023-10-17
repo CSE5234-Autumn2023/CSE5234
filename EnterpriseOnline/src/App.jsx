@@ -11,7 +11,6 @@ import Header from './components/header';
 import AboutUs from './components/aboutUs';
 import ContactUs from './components/contactUs';
 import Home from './components/home';
-import mock_products from "./data/mockProducts.json";
 import axios from 'axios';
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
   });
 
   const [products, setProducts] = useState([]);
-
 
   useEffect(() => {
     const local_order = JSON.parse(localStorage.getItem('order'));
@@ -36,7 +34,7 @@ function App() {
           const data = response.data;
           setProducts(data);
     });
-  }, []);
+  }, [])
 
 
   return (
