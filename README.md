@@ -29,7 +29,7 @@ requirements are
  
 
 Paul
-- Update presentation tier order state to better store cart data
+- ~~Update presentation tier order state to better store cart data~~
 - Create a Microservice with Web APIs that manages inventory of items that your company sells.
   - ~~The inventory-management microservice will support a GET method which will return all
     the items available in the inventory (warehouse). This API will return data in JSON
@@ -38,7 +38,7 @@ Paul
     the inventory (warehouse) for a given item Id and/or name, in JSON format~~
 - Create a microservice with Web APIs that will handle and process customer order. The
 requirements are
-  - The order-processing microservice will support a POST method which will accept a
+  - ~~The order-processing microservice will support a POST method which will accept a
     customer order in JSON format. The order will contain list of items, payment details, and
     requested shipping information. ALL DONE EXCEPT NEED TO INCLUDE PAYMENT DETAILS AND SHIPPING.
-    /postOrder ALREADY ACCEPTS A LIST OF ITEMS
+    /postOrder ALREADY ACCEPTS A LIST OF ITEMS~~
