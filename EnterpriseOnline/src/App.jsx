@@ -12,15 +12,16 @@ import AboutUs from './components/aboutUs';
 import ContactUs from './components/contactUs';
 import Home from './components/home';
 import mock_products from "./data/mockProducts.json";
+import axios from 'axios';
 
 function App() {
 
   const [order, setOrder] = useState({
-    cart: [{"name": "Camera", "quantity": 1}, {"name": "Milk", "quantity": 2}], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
+    cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
     address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
   });
 
-  const [products, setProducts] = useState(mock_products);
+  const [products, setProducts] = useState([]);
 
 
   useEffect(() => {
@@ -28,6 +29,13 @@ function App() {
     if (local_order) {
       setOrder(local_order);
     }
+
+    axios
+      .get('/inventory-management/inventory')
+      .then((response) => {
+          const data = response.data;
+          setProducts(data);
+    });
   }, []);
 
 
@@ -37,7 +45,7 @@ function App() {
         <div className="content">
           <Header order={order}/>
           <Routes>
-            <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} />} />
+            <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} products={products} />} />
             <Route path="/" element={<Home />} />
             <Route path="/purchase/paymentEntry" element={<PaymentEntry order={order} setOrder={setOrder} />} />
             <Route path="/purchase/shippingEntry" element={<ShippingEntry order={order} setOrder={setOrder} />} />

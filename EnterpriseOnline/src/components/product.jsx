@@ -17,6 +17,15 @@ function Product(props) {
     }, [addedToCartConfirmation])
 
 
+    const getCartQuantity = () => {
+        let productInCart = props.order.cart.some(elem => elem.id === props.index);
+        if (productInCart) {
+            return props.order.cart.find(elem => elem.id === props.index).quantity;
+        } else {
+            return 0;
+        }
+    }
+
 
     return (
         <div className="product-details">
@@ -26,17 +35,19 @@ function Product(props) {
             <button
                     onClick={() => {
                         setAddedToCartConfirmation(true);
-                        const { length } = arr;
-                        const id = length + 1;
-                        const found = arr.some(el => el.username === name);
-                        if (!found) arr.push({ id, username: name });
-                        return arr;
-                        if ()
 
-                        let updated_products = props.order.products;
-                        updated_products[props.index].quantity = props.product.quantity + 1;
-                        props.setOrder({ ...props.order, products: updated_products })
+                        let cart = props.order.cart;
+                        const id_found = cart.some(elem => elem.id === props.index);
+
+                        if (id_found) {
+                            cart.find(elem => elem.id === props.index).quantity += 1;
+                        } else {
+                            cart.push({ id: props.index, quantity: 1 });
+                        }
+
+                        props.setOrder({ ...props.order, cart: cart })
                         localStorage.setItem('order', JSON.stringify(props.order));
+                        console.log(props.order)
                     }}
                     className="btn btn-primary add-to-cart-btn"
                 >
@@ -45,9 +56,9 @@ function Product(props) {
             {
                 addedToCartConfirmation
                     ?
-                    <div className="product-quantity product-confirmation">Quantity in Cart - {props.product.quantity}</div>
+                    <div className="product-quantity product-confirmation">Quantity in Cart - {getCartQuantity()}</div>
                     :
-                <div className="product-quantity">Quantity in Cart - {props.product.quantity}</div>
+                <div className="product-quantity">Quantity in Cart - {getCartQuantity()}</div>
             }
         </div>
     )
