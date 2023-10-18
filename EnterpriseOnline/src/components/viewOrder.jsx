@@ -24,9 +24,12 @@ const ViewOrder = (props) => {
     const calculateTotalCost = () => {
         let total_cost = 0
 
-        props.order.cart.map((product) => {
-            total_cost += props.products.find(elem => elem.id === product.id).price * product.quantity;
-        })
+        for (const product of props.order.cart) {
+            const matchingProduct = props.products.find((elem) => elem.id === product.id);
+            if (matchingProduct) {
+                total_cost += matchingProduct.price * product.quantity;
+            }
+        }
 
         return (
             <div className="total-cost">
@@ -34,6 +37,8 @@ const ViewOrder = (props) => {
             </div>
         )
     }
+
+    console.log(props.order.cart)
 
     const displayCart = () => {
 

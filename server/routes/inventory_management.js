@@ -96,6 +96,32 @@ router.get('/inventory/items/:id', (req, res) => {
     }
 });
 
+// req body looks like this [{ "id": 1, "quantity": 1 },{ "id": 2, "quantity": 3 }]
+router.post('/postOrder', (req, res) => {
 
+    console.log(req.body)
+    let success = true;
+
+    req.body.map((orderItem) => {
+        if (!("id" in orderItem) || !("quantity" in orderItem)) {
+            res.send({ error: 'Invalid order entry.' });
+            success = false;
+        }
+        if (products[orderItem.id].quantity < orderItem.quantity) {
+            res.send({ error: 'Inventory quantity less than cart quantity for item ' + orderItem.id + '.' });
+            success = false;
+        }
+    })
+
+    if (success) {
+        req.body.map((orderItem) => {
+            products[orderItem.id].quantity = orderItem.quantity;    
+        })
+    }
+    
+    if (success) {
+        res.status(200).send({ msg: 'Inventory updated successfully.' });
+    }
+});
 
 module.exports = router;

@@ -26,6 +26,24 @@ function Product(props) {
         }
     }
 
+    const originalCartQuantity = () => {
+        let productInCart = props.order.cart.some(elem => elem.id === props.index);
+        if (productInCart) {
+            return props.order.cart.find(elem => elem.id === props.index).quantity;
+        } else {
+            return 0;
+        }
+    } 
+
+    const getInventoryQuantity = () => {
+        let productInInventory = props.inventory.some(elem => elem.id === props.index);
+        if (productInInventory) {
+            return props.inventory.find(elem => elem.id === props.index).quantity;
+        } else {
+            return 0;
+        }
+    }
+
 
     return (
         <div className="product-details">
@@ -33,6 +51,7 @@ function Product(props) {
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>
             <button
+                    disabled={ getInventoryQuantity() < getCartQuantity() - originalCartQuantity }
                     onClick={() => {
                         setAddedToCartConfirmation(true);
 

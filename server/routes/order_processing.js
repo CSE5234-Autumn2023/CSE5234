@@ -65,21 +65,27 @@ let products = [
 // Shouldn't be using the success variable though, just getting this error: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
 //      caused by 2 res.sends being called, for some reason return statement like above isn't returning not really sure what is happening
 // Should be able to use postman to test though
-router.post('/postOrder', (req, res) => {
+// router.post('/postOrder', (req, res) => {
 
-    console.log(req.body)
-    let success = true;
+//     console.log(req.body)
+//     let success = true;
 
-    req.body.map((orderItem) => {
-        if (!("id" in orderItem) || !("quantity" in orderItem)) {
-            res.send({ error: 'Invalid order entry.' });
-            success = false;
-        }
-    })
+//     req.body.map((orderItem) => {
+//         if (!("id" in orderItem) || !("quantity" in orderItem)) {
+//             res.send({ error: 'Invalid order entry.' });
+//             success = false;
+//         }
+//     })
+
+//     if (success) {
+//         req.body.map((orderItem) => {
+            
+//         })
+//     }
     
-    if (success) {
-        res.status(200).send({ msg: 'Order submitted successfully.' });
-    }
-});
+//     if (success) {
+//         res.status(200).send({ msg: 'Order submitted successfully.' });
+//     }
+// });
 
 module.exports = router;
