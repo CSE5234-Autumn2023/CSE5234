@@ -6,7 +6,6 @@ function ProductSummary(props) {
     const getProductName = () => {
         if (props.product) {
             if (props.product.name) {
-                console.log(props.product.name)
                 return props.product.name;
             } else {
                 return '';
@@ -32,7 +31,6 @@ function ProductSummary(props) {
     const getProductPrice = () => {
         if (props.product) {
             if (props.product.price) {
-                console.log(props.product.price)
                 return props.product.price;
             } else {
                 return '';

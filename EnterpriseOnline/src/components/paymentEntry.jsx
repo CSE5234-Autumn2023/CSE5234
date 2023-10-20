@@ -29,7 +29,6 @@ const PaymentEntry = (props) => {
         let total_cost = 0
 
         props.order.products.forEach((product) => {
-            console.log(product)
             const matchingProduct = props.products.find((elem) => elem.id === product.id);
 
             if (matchingProduct) {

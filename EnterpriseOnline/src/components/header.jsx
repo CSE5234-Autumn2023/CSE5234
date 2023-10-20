@@ -19,6 +19,15 @@ const Header = (props) => {
         navigate('/purchase/paymentEntry');
     }
 
+    const buttonDisabled = () => {
+        if (props.order.products) {
+            return !props.order.products.reduce((n, {quantity}) => n + quantity, 0);
+        } else {
+            return true;
+        }
+        
+    }
+
 
     return (
         <div className="header">
@@ -37,9 +46,8 @@ const Header = (props) => {
             </div>
             <div className="d-flex flex-row-reverse">
                 <div className="p-2">
-                    <button onClick={checkoutPageClick} className='btn btn-light checkout-btn'>Checkout</button>
+                    <button onClick={checkoutPageClick} disabled={buttonDisabled()} className='btn btn-light checkout-btn'>Checkout</button>
                 </div>
-                {/* Add this to the button above: disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} */}
             </div>
         </div >
     )

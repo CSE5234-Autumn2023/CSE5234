@@ -38,8 +38,6 @@ const ViewOrder = (props) => {
         )
     }
 
-    console.log(props.order.cart)
-
     const displayCart = () => {
 
         return (
