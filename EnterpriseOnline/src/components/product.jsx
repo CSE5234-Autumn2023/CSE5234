@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import "./styles/product.css";
 
 function Product(props) {
@@ -18,31 +19,48 @@ function Product(props) {
 
 
     const getCartQuantity = () => {
-        let productInCart = props.order.cart.some(elem => elem.id === props.index);
-        if (productInCart) {
-            return props.order.cart.find(elem => elem.id === props.index).quantity;
+        if (props.order.products) {
+            let productInCart = props.order.cart.some(elem => elem.id === props.index);
+            if (productInCart) {
+                return props.order.cart.find(elem => elem.id === props.index).quantity;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
+        
     }
 
     const originalCartQuantity = () => {
-        let productInCart = props.order.cart.some(elem => elem.id === props.index);
-        if (productInCart) {
-            return props.order.cart.find(elem => elem.id === props.index).quantity;
+        if (props.order.products) {
+            let productInCart = props.order.products.some(elem => elem.id === props.index);
+            if (productInCart) {
+                return props.order.cart.find(elem => elem.id === props.index).quantity;
+            } else {
+                return 0;
+            }
         } else {
             return 0;
         }
     } 
 
     const getInventoryQuantity = () => {
-        let productInInventory = props.inventory.some(elem => elem.id === props.index);
-        if (productInInventory) {
-            return props.inventory.find(elem => elem.id === props.index).quantity;
-        } else {
-            return 0;
-        }
-    }
+    axios
+        .get('/inventory-management/inventory')
+        .then((response) => {
+            const inventoryData = response.data;
+            let productInInventory = inventoryData.some(elem => elem.id === props.index);
+            if (productInInventory) {
+                return inventoryData.find(elem => elem.id === props.index).quantity;
+            } else {
+                return 0;
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    };
 
 
     return (
@@ -55,7 +73,7 @@ function Product(props) {
                     onClick={() => {
                         setAddedToCartConfirmation(true);
 
-                        let cart = props.order.cart;
+                        let cart = props.order.products;
                         const id_found = cart.some(elem => elem.id === props.index);
 
                         if (id_found) {
@@ -66,7 +84,6 @@ function Product(props) {
 
                         props.setOrder({ ...props.order, cart: cart })
                         localStorage.setItem('order', JSON.stringify(props.order));
-                        console.log(props.order)
                     }}
                     className="btn btn-primary add-to-cart-btn"
                 >

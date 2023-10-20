@@ -37,8 +37,9 @@ const Header = (props) => {
             </div>
             <div className="d-flex flex-row-reverse">
                 <div className="p-2">
-                    <button onClick={checkoutPageClick} disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn'>Checkout</button>
+                    <button onClick={checkoutPageClick} className='btn btn-light checkout-btn'>Checkout</button>
                 </div>
+                {/* Add this to the button above: disabled={!props.order.products.reduce((n, {quantity}) => n + quantity, 0)} */}
             </div>
         </div >
     )

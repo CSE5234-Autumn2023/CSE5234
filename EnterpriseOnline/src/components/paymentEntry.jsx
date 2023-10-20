@@ -28,9 +28,21 @@ const PaymentEntry = (props) => {
     const calculateTotalCost = () => {
         let total_cost = 0
 
-        props.order.cart.map((product) => {
-            total_cost += props.products.find(elem => elem.id === product.id).price * product.quantity;
-        })
+        props.order.products.forEach((product) => {
+            console.log(product)
+            const matchingProduct = props.products.find((elem) => elem.id === product.id);
+
+            if (matchingProduct) {
+                total_cost += matchingProduct.price * product.quantity;
+            } else {
+                console.warn(`Product with id ${product.id} not found.`);
+            }
+        });
+
+        // props.order.cart.map((product) => {
+        //     console.log(props.products)
+        //     total_cost += props.products.find(elem => elem.id === product.id).price * product.quantity;
+        // })
 
         return (
             <div className="center">
@@ -41,12 +53,12 @@ const PaymentEntry = (props) => {
 
     const displayCart = () => {
 
-        if (props.order.cart.length === 0) {
+        if (props.order.products.length === 0) {
             navigate('/purchase');
         }
 
         return (
-            props.order.cart.map((product, index) => {
+            props.order.products.map((product, index) => {
                 return (
                     <div className="container product-in-cart-summary">
                         <ProductSummary product={props.products.find(elem => elem.id === product.id)} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
