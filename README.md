@@ -8,6 +8,11 @@ This is an enterprise web project.
 - Also downloading and using Postman is a really easy way to test all of these requests before we start using them with the frontend,
   if you need help just text and I can send some pictures on how to use it.
 
+# Known Errors and Warnings
+- Error: After placing an order and the cart gets reset, you are unable to add items back into cart because the use of some on line 77 of product.jsx
+- Error: On the payment Entry page, the something wonky is happening, and I can't explain it
+- Warning: Each child in a list should have a unique "key" prop.
+
 # Things to do
 - Fix API URLs to match lab documentation
 - Create a Microservice with Web APIs that manages inventory of items that your company sells.
