@@ -39,7 +39,6 @@ const ViewOrder = (props) => {
     }
 
     const displayCart = () => {
-
         return (
             props.order.cart.map((product, index) => {
                 return (
@@ -47,6 +46,7 @@ const ViewOrder = (props) => {
                         <ProductSummary product={props.products.find(elem => elem.id === product.id)} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
                     </div>
                 )
+                
             })
         )
     }
