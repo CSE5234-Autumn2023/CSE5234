@@ -19,7 +19,7 @@ function Product(props) {
 
 
     const getCartQuantity = () => {
-        if (props.order.products) {
+        if (props.order.cart) {
             let productInCart = props.order.cart.some(elem => elem.id === props.index);
             if (productInCart) {
                 return props.order.cart.find(elem => elem.id === props.index).quantity;
@@ -33,8 +33,8 @@ function Product(props) {
     }
 
     const originalCartQuantity = () => {
-        if (props.order.products) {
-            let productInCart = props.order.products.some(elem => elem.id === props.index);
+        if (props.order.cart) {
+            let productInCart = props.order.cart.some(elem => elem.id === props.index);
             if (productInCart) {
                 return props.order.cart.find(elem => elem.id === props.index).quantity;
             } else {
@@ -46,20 +46,20 @@ function Product(props) {
     } 
 
     const getInventoryQuantity = () => {
-    axios
-        .get('/inventory-management/inventory')
-        .then((response) => {
-            const inventoryData = response.data;
-            let productInInventory = inventoryData.some(elem => elem.id === props.index);
-            if (productInInventory) {
-                return inventoryData.find(elem => elem.id === props.index).quantity;
-            } else {
-                return 0;
-            }
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+        axios
+            .get('/inventory-management/inventory')
+            .then((response) => {
+                const inventoryData = response.data;
+                let productInInventory = inventoryData.some(elem => elem.id === props.index);
+                if (productInInventory) {
+                    return inventoryData.find(elem => elem.id === props.index).quantity;
+                } else {
+                    return 0;
+                }
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     };
 
 
@@ -69,11 +69,11 @@ function Product(props) {
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>
             <button
-                    disabled={ getInventoryQuantity() < getCartQuantity() - originalCartQuantity }
+                    disabled={ getInventoryQuantity() < getCartQuantity() - originalCartQuantity() }
                     onClick={() => {
                         setAddedToCartConfirmation(true);
 
-                        let cart = props.order.products;
+                        let cart = props.order.cart;
                         const id_found = cart.some(elem => elem.id === props.index);
 
                         if (id_found) {

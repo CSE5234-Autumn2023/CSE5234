@@ -20,8 +20,8 @@ const Header = (props) => {
     }
 
     const buttonDisabled = () => {
-        if (props.order.products) {
-            return !props.order.products.reduce((n, {quantity}) => n + quantity, 0);
+        if (props.order.cart) {
+            return !props.order.cart.reduce((n, {quantity}) => n + quantity, 0);
         } else {
             return true;
         }
