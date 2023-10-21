@@ -29,21 +29,9 @@ function Product(props) {
         } else {
             return 0;
         }
-        
     }
 
-    const originalCartQuantity = () => {
-        if (props.order.cart) {
-            let productInCart = props.order.cart.some(elem => elem.id === props.index);
-            if (productInCart) {
-                return props.order.cart.find(elem => elem.id === props.index).quantity;
-            } else {
-                return 0;
-            }
-        } else {
-            return 0;
-        }
-    } 
+    const [inventoryQuantity, setInventoryQuantity] = useState(null);
 
     const getInventoryQuantity = () => {
         axios
@@ -52,15 +40,19 @@ function Product(props) {
                 const inventoryData = response.data;
                 let productInInventory = inventoryData.some(elem => elem.id === props.index);
                 if (productInInventory) {
-                    return inventoryData.find(elem => elem.id === props.index).quantity;
+                    setInventoryQuantity(inventoryData.find(elem => elem.id === props.index).quantity);
                 } else {
-                    return 0;
+                    setInventoryQuantity(0);
                 }
             })
             .catch((error) => {
                 console.error(error);
             });
     };
+
+    useEffect(() => {
+        getInventoryQuantity();
+    }, []);
 
 
     return (
@@ -69,7 +61,7 @@ function Product(props) {
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>
             <button
-                    disabled={ getInventoryQuantity() < getCartQuantity() - originalCartQuantity() }
+                    disabled={ inventoryQuantity === getCartQuantity()}
                     onClick={() => {
                         setAddedToCartConfirmation(true);
 

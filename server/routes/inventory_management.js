@@ -22,7 +22,7 @@ let products = [
         "name": "Watch",
         "description": "Newly Released Watch 7",
         "price": 500,
-        "quantity": 0
+        "quantity": 1
     },
     {
         "id": 2,
@@ -31,7 +31,7 @@ let products = [
         "name": "Headphones",
         "description": "Best Sounding Headphones",
         "price": 200,
-        "quantity": 0
+        "quantity": 1
     },
     {   
         "id": 3,
@@ -40,7 +40,7 @@ let products = [
         "name": "Rubik's Cube",
         "description": "Hardest Puzzle We Have",
         "price": 25,
-        "quantity": 0
+        "quantity": 1
     },
     {
         "id": 4,
@@ -49,7 +49,7 @@ let products = [
         "name": "Milk",
         "description": "Icy Cold Milk",
         "price": 5,
-        "quantity": 0
+        "quantity": 1
     },
     {
         "id": 5,
@@ -58,7 +58,7 @@ let products = [
         "name": "Signed Basketball by Praveen Kumar",
         "description": "Certified by The Committee of Signings",
         "price": 12000,
-        "quantity": 0
+        "quantity": 1
     }
 ];
 
@@ -115,7 +115,7 @@ router.post('/postOrder', (req, res) => {
 
     if (success) {
         req.body.map((orderItem) => {
-            products[orderItem.id].quantity = orderItem.quantity;    
+            products[orderItem.id].quantity -= orderItem.quantity;    
         })
     }
     

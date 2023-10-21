@@ -11,7 +11,7 @@ This is an enterprise web project.
 # Known Errors and Warnings
 - Error: After placing an order and the cart gets reset, you are unable to add items back into cart because the use of some on line 77 of product.jsx
 - Error: Invenotry is not being updated when placing order
-- Error: Inventory quantity is not being checked when updating cart (not disabling the buttons)
+- Error: Inventory quantity for id==0 is not being checked on disabled
 - Warning: Each child in a list should have a unique "key" prop.
 
 # Things to do
