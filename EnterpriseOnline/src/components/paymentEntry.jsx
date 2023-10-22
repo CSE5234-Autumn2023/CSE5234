@@ -15,6 +15,7 @@ const PaymentEntry = (props) => {
             cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: ''
         });
+        localStorage.clear();
 
         navigate('/purchase');
     }

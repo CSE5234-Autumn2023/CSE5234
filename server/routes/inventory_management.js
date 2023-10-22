@@ -98,8 +98,6 @@ router.get('/inventory/items/:id', (req, res) => {
 
 // req body looks like this [{ "id": 1, "quantity": 1 },{ "id": 2, "quantity": 3 }]
 router.post('/postOrder', (req, res) => {
-
-    console.log(req.body)
     let success = true;
 
     req.body.map((orderItem) => {

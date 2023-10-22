@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import ProductSummary from './productSummary';
+import axios from 'axios';
 import "./styles/viewOrder.css";
 
 const ViewOrder = (props) => {
@@ -12,13 +13,27 @@ const ViewOrder = (props) => {
     const initialOrder = props.order;
 
     const handleSubmit = () => {
+        postOrder(props.order.cart);
+
         props.setOrder({
             cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
             address_2: '', city: '', state: '', zip: '', shippingMethod: '', email: '',
         });
+        localStorage.clear();
 
         navigate('/purchase/viewConfirmation');
     }
+
+    const postOrder = (orderData) => {
+        console.log(orderData)
+        axios.post('/inventory-management/postOrder', orderData)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {  
+                console.error(error);
+            });
+        };
 
 
     const calculateTotalCost = () => {
