@@ -29,7 +29,7 @@ function App() {
     }
 
     axios
-      .get('/inventory-management/inventory')
+      .get('/routes/inventory_management')
       .then((response) => {
           const data = response.data;
           setProducts(data);

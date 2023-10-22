@@ -20,9 +20,9 @@ function Product(props) {
 
     const getCartQuantity = () => {
         if (props.order.cart) {
-            let productInCart = props.order.cart.some(elem => elem.id === props.index);
+            let productInCart = props.order.cart.some(elem => elem._id === props.index);
             if (productInCart) {
-                return props.order.cart.find(elem => elem.id === props.index).quantity;
+                return props.order.cart.find(elem => elem._id === props.index).quantity;
             } else {
                 return 0;
             }
@@ -65,12 +65,12 @@ function Product(props) {
                         setAddedToCartConfirmation(true);
 
                         let cart = props.order.cart;
-                        const id_found = cart.some(elem => elem.id === props.index);
+                        const id_found = cart.some(elem => elem._id === props.index);
 
                         if (id_found) {
-                            cart.find(elem => elem.id === props.index).quantity += 1;
+                            cart.find(elem => elem._id === props.index).quantity += 1;
                         } else {
-                            cart.push({ id: props.index, quantity: 1 });
+                            cart.push({ _id: props.index, quantity: 1 });
                         }
 
                         props.setOrder({ ...props.order, cart: cart })
