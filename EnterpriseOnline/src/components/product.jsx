@@ -33,14 +33,13 @@ function Product(props) {
 
     const [inventoryQuantity, setInventoryQuantity] = useState(null);
 
-    const getInventoryQuantity = () => {
+    const getInventoryQuantity = (id) => {
         axios
-            .get('/inventory-management/inventory')
+            .get(`/inventory-management/inventory/items/${id}`)
             .then((response) => {
                 const inventoryData = response.data;
-                let productInInventory = inventoryData.some(elem => elem.id === props.index);
-                if (productInInventory) {
-                    setInventoryQuantity(inventoryData.find(elem => elem.id === props.index).quantity);
+                if (inventoryData && inventoryData.quantity !== undefined) {
+                    setInventoryQuantity(inventoryData.quantity);
                 } else {
                     setInventoryQuantity(0);
                 }
@@ -51,8 +50,8 @@ function Product(props) {
     };
 
     useEffect(() => {
-        getInventoryQuantity();
-    }, []);
+        getInventoryQuantity(props.index);
+    }, [props.index]);
 
 
     return (

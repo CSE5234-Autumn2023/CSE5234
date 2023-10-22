@@ -13,7 +13,7 @@ let products = [
         "name": "Camera",
         "description": "Model 2 Camera with Extra Zoom",
         "price": 1000,
-        "inventoryQuantity": 2
+        "quantity": 2
     },
     {
         "id": 1,
