@@ -28,8 +28,8 @@ app.use((err, req, res, next) => {
 
 const db = require("./db/conn");
 
-app.listen(port, () => {
-  db.connectToServer(function (err) {
+app.listen(port, async() => {
+  await db.connectToServer(function (err) {
     if (err) console.log(err);
   });
   console.log(`Server is running on port ${port}`);
@@ -46,7 +46,7 @@ app.get("/routes/inventory_management", async (req, res) => {
         .collection("mockProducts")
         .find({})
         .toArray();
-    response.json(records);
+    res.json(records);
   } catch (e) {
     console.log("An error occurred pulling the records. " + e);
   }
