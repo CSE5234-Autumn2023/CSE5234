@@ -10,7 +10,6 @@ This is an enterprise web project.
 
 # Known Errors and Warnings
 - Error: Invenotry is not being updated when placing order
-- Error: Inventory quantity for id==0 is not being checked on disabled
 - Warning: Each child in a list should have a unique "key" prop.
 
 # Things to do
