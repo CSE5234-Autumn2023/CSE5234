@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const inventoryRoutes = require('./routes/inventory_management');
 const orderRoutes = require('./routes/order_processing');
-require('dotenv').config();
+require("dotenv").config({ path: "./config.env" });
 
 const app = express();
 
@@ -26,6 +25,29 @@ app.use((err, req, res, next) => {
   next();
 });
 
+
+const db = require("./db/conn");
+
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  db.connectToServer(function (err) {
+    if (err) console.log(err);
+  });
+  console.log(`Server is running on port ${port}`);
+});
+
+// const Inventory = require("./models/inventory");
+// const ObjectId = require("mongodb").ObjectId;
+
+
+app.get("/routes/inventory_management", async (req, res) => {
+  let db_connect = db.getDb("mockProducts");
+  try {
+    var records = await db_connect
+        .collection("mockProducts")
+        .find({})
+        .toArray();
+    response.json(records);
+  } catch (e) {
+    console.log("An error occurred pulling the records. " + e);
+  }
 });
