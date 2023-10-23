@@ -66,8 +66,17 @@ let products = [
 // GET REQUESTS //
 
 
-router.get('/inventory', (req, res) => {
-    return res.send(products);
+router.get('/inventory', async (req, res) => {
+    let db_connect = db.getDb("mockProducts");
+  try {
+    var records = await db_connect
+        .collection("mockProducts")
+        .find({})
+        .toArray();
+    res.json(records);
+  } catch (e) {
+    console.log("An error occurred pulling the records. " + e);
+  }
 });
 
 router.get('/inventory/items', (req, res) => {
