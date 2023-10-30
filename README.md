@@ -21,6 +21,11 @@ Jason
 - Change name EnterpriseOnlineInventoryDB
 
  Nick
+- View Order page
+  - Top grid
+  - Bottom grid
+- Payment Entry page
+- Contact Us page
 
  
 
