@@ -41,7 +41,7 @@ function App() {
     <div className="App">
       <Router>
         <div className="content">
-          <Header order={order}/>
+          <Header order={order} setOrder={setOrder} products={products} />
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} products={products} />} />
             <Route path="/" element={<Home />} />

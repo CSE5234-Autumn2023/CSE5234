@@ -9,40 +9,24 @@ This is an enterprise web project.
   if you need help just text and I can send some pictures on how to use it.
 
 # Known Errors and Warnings
-- Error: Invenotry is not being updated when placing order
-- Warning: Each child in a list should have a unique "key" prop.
 
 # Things to do
-- Fix API URLs to match lab documentation
-- Create a Microservice with Web APIs that manages inventory of items that your company sells.
-  - Refactor the presentation tier from the previous lab to use the inventory-management
-    service to obtain and display items available for sale
+
+Jason
+- Make the EnterpriseOnlineSalesDB
+  - Order
+    - credit_card_number: int, expir_date: date, cvv: int, card_holder_name: string, address_1: string, address_2: string, city: string, state: string, zip: int, shippingMethod: string, email: ''
+  - Item
+    - order_id, prod_id, qunatity
+- Change name EnterpriseOnlineInventoryDB
 
  Nick
-- Update JSON mock products in api to include inventory information such as quantity in inventory rather than quantity in cart
-- Create a microservice with Web APIs that will handle and process customer order. The
-requirements are
-  - The order-processing microservice will interact with inventory-management service to
-    check if the quantity requested by the customer is available to sell. If enough quantity
-    exists in the warehouse, the order-processing microservice will return a valid
-    confirmation number. If any item is not available in sufficient quantity, an error code
-    will be returned to the caller.
-  - OPTIONAL – return available quantity to presentation tier, so that it can prompt the user
-  accordingly, and give them a choice to select fewer items.
-- At the end of this lab, there should be nothing hardcoded in the presentation tier.
+- View Order page
+  - Top grid
+  - Bottom grid
+- Payment Entry page
+- Contact Us page
+
  
 
 Paul
-- ~~Update presentation tier order state to better store cart data~~
-- Create a Microservice with Web APIs that manages inventory of items that your company sells.
-  - ~~The inventory-management microservice will support a GET method which will return all
-    the items available in the inventory (warehouse). This API will return data in JSON
-    format. The available items can be hard coded within the microservice.~~
-  - ~~The microservice will support a GET method which will return all the items available in
-    the inventory (warehouse) for a given item Id and/or name, in JSON format~~
-- Create a microservice with Web APIs that will handle and process customer order. The
-requirements are
-  - ~~The order-processing microservice will support a POST method which will accept a
-    customer order in JSON format. The order will contain list of items, payment details, and
-    requested shipping information. ALL DONE EXCEPT NEED TO INCLUDE PAYMENT DETAILS AND SHIPPING.
-    /postOrder ALREADY ACCEPTS A LIST OF ITEMS~~
