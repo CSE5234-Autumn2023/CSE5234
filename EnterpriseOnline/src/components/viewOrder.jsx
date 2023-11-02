@@ -86,7 +86,7 @@ const ViewOrder = (props) => {
             <div className="center">
                 <h2>Payment Information</h2>
             </div>
-            <table className="table table-bordered justify-content-center">
+            <table className="table table-bordered equal-width-table justify-content-center">
                 <tbody>
                 <tr>
                     <th className="text-center" scope="row">
@@ -117,7 +117,7 @@ const ViewOrder = (props) => {
 
 
             <h2 className="center">Shipping Information</h2>
-                <table className="table table-bordered justify-content-center">
+                <table className="table table-bordered equal-width-table justify-content-center">
                     <tbody>
                         <tr>
                             <th className="text-center" scope="row">

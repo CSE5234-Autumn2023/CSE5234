@@ -1,0 +1,26 @@
+.confirmation-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.confirmation-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.confirmation-message {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-button {
+  margin-top: 20px;
+}
+
+
+
+
+
