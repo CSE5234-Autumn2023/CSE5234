@@ -27,3 +27,15 @@ hr {
   text-align: center;
   padding: 8px;
 }
+
+.equal-width-table-three {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.equal-width-table-three th,
+.equal-width-table-three td {
+  width: 33%;
+  text-align: center;
+  padding: 8px;
+}

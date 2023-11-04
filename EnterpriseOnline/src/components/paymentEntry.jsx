@@ -1,9 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
-import ProductSummary from './productSummary';
 import "./styles/paymentEntry.css";
-import mock_products from "../data/mockProducts.json";
-
 
 const PaymentEntry = (props) => {
 
@@ -47,21 +44,35 @@ const PaymentEntry = (props) => {
     }
 
     const displayCart = () => {
-
-        if (props.order.cart.length === 0) {
-            navigate('/purchase');
-        }
-
         return (
-            props.order.cart.map((product, index) => {
-                return (
-                    <div className="container product-in-cart-summary">
-                        <ProductSummary product={props.products.find(elem => elem.id === product.id)} quantity={product.quantity} order={props.order} setOrder={props.setOrder} index={index} editable={false} />
-                    </div>
-                )
-            })
-        )
-    }
+            <table className="table equal-width-table-three table-bordered">
+                <thead>
+                    <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.order.cart.map((product, index) => {
+                    const productData = props.products.find((elem) => elem.id === product.id);
+
+                    if (productData) {
+                        return (
+                        <tr key={index}>
+                            <td>{productData.description}</td>
+                            <td>{product.quantity}</td>
+                            <td>${productData.price * product.quantity}</td>
+                        </tr>
+                        );
+                    }
+
+                    return null;
+                    })}
+                </tbody>
+            </table>
+        );
+    };
     
     return (
         <div>
@@ -69,12 +80,10 @@ const PaymentEntry = (props) => {
                 {title}
             </h1>
 
-            <div>
-                {(props.products.length > 0) ? displayCart() : <></>}
-            </div>
+            {displayCart()}
 
             <div>
-                {(props.products.length > 0) ? calculateTotalCost() : <></>}
+                {calculateTotalCost()}
             </div>
 
             <br />
