@@ -1,8 +1,6 @@
 const { MongoClient } = require("mongodb");
 ATLAS_URI="mongodb+srv://weiblejason:oNCaXFXbkhNxY1Ui@cluster0.urmyxir.mongodb.net/mockProducts?retryWrites=true&w=majority";
-const Db = ATLAS_URI;
-console.log(Db);
-const client = new MongoClient(Db, {
+const client = new MongoClient(ATLAS_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
