@@ -12,7 +12,7 @@ const ViewOrder = (props) => {
     const initialOrder = props.order;
 
     const handleSubmit = () => {
-        postOrder(props.order.cart);
+        postOrder(props.order);
 
         props.setOrder({
             cart: [], credit_card_number: '', expir_date: '', cvv: '', card_holder_name: '', address_1: '',
@@ -24,22 +24,30 @@ const ViewOrder = (props) => {
     }
 
     const postOrder = (orderData) => {
-        console.log(orderData)
-        axios.post('/inventory-management/postOrder', orderData)
+
+        axios.post('/inventory-management/inventory/place-order', orderData.cart)
             .then((response) => {
                 console.log(response.data);
             })
-            .catch((error) => {  
+            .catch((error) => {
                 console.error(error);
             });
-        };
+
+        axios.post('/order-processing/order', orderData)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
 
 
     const calculateTotalCost = () => {
         let total_cost = 0
 
         for (const product of props.order.cart) {
-            const matchingProduct = props.products.find((elem) => elem.id === product.id);
+            const matchingProduct = props.products.find((elem) => elem['_id'] === product['_id']);
             if (matchingProduct) {
                 total_cost += matchingProduct.price * product.quantity;
             }
@@ -57,26 +65,26 @@ const ViewOrder = (props) => {
             <table className="table equal-width-table-three table-bordered">
                 <thead>
                     <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Total Price</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.order.cart.map((product, index) => {
-                    const productData = props.products.find((elem) => elem.id === product.id);
+                        const productData = props.products.find((elem) => elem['_id'] === product['_id']);
 
-                    if (productData) {
-                        return (
-                        <tr key={index}>
-                            <td>{productData.description}</td>
-                            <td>{product.quantity}</td>
-                            <td>${productData.price * product.quantity}</td>
-                        </tr>
-                        );
-                    }
+                        if (productData) {
+                            return (
+                                <tr key={index}>
+                                    <td>{productData.description}</td>
+                                    <td>{product.quantity}</td>
+                                    <td>${productData.price * product.quantity}</td>
+                                </tr>
+                            );
+                        }
 
-                    return null;
+                        return null;
                     })}
                 </tbody>
             </table>
@@ -102,89 +110,89 @@ const ViewOrder = (props) => {
             </div>
             <table className="table table-bordered equal-width-table justify-content-center">
                 <tbody>
-                <tr>
-                    <th className="text-center" scope="row">
-                        Credit Card Number:
-                    </th>
-                    <td className="textStart">{initialOrder.credit_card_number}</td>
-                </tr>
-                <tr>
-                    <th className="text-center" scope="row">
-                        Expiration Date:
-                    </th>
-                    <td className="textStart">{initialOrder.expir_date}</td>
-                </tr>
-                <tr>
-                    <th className="text-center" scope="row">
-                        CVV:
-                    </th>
-                    <td className="textStart">{initialOrder.cvv}</td>
-                </tr>
-                <tr>
-                    <th className="text-center" scope="row">
-                        Credit Card Holder Name:
-                    </th>
-                    <td className="textStart">{initialOrder.card_holder_name}</td>
-                </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Credit Card Number:
+                        </th>
+                        <td className="textStart">{initialOrder.credit_card_number}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Expiration Date:
+                        </th>
+                        <td className="textStart">{initialOrder.expir_date}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            CVV:
+                        </th>
+                        <td className="textStart">{initialOrder.cvv}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Credit Card Holder Name:
+                        </th>
+                        <td className="textStart">{initialOrder.card_holder_name}</td>
+                    </tr>
                 </tbody>
             </table>
 
 
             <h2 className="center">Shipping Information</h2>
-                <table className="table table-bordered equal-width-table justify-content-center">
-                    <tbody>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                Address 1:
-                            </th>
-                            <td>{initialOrder.address_1}</td>
-                        </tr>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                Address 2:
-                            </th>
-                            <td>{initialOrder.address_2}</td>
-                        </tr>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                City:
-                            </th>
-                            <td>{initialOrder.city}</td>
-                        </tr>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                State:
-                            </th>
-                            <td>{initialOrder.state}</td>
-                        </tr>
-                        <tr>
+            <table className="table table-bordered equal-width-table justify-content-center">
+                <tbody>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Address 1:
+                        </th>
+                        <td>{initialOrder.address_1}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Address 2:
+                        </th>
+                        <td>{initialOrder.address_2}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            City:
+                        </th>
+                        <td>{initialOrder.city}</td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            State:
+                        </th>
+                        <td>{initialOrder.state}</td>
+                    </tr>
+                    <tr>
 
 
-                            <th className="text-center" scope="row">
-                                Zip Code:
-                            </th>
-                            <td>
-                                {initialOrder.zip}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                Email Address:
-                            </th>
-                            <td>
-                                {initialOrder.email}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th className="text-center" scope="row">
-                                Zip Code:
-                            </th>
-                            <td>{initialOrder.shippingMethod}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                        <th className="text-center" scope="row">
+                            Zip Code:
+                        </th>
+                        <td>
+                            {initialOrder.zip}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Email Address:
+                        </th>
+                        <td>
+                            {initialOrder.email}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th className="text-center" scope="row">
+                            Zip Code:
+                        </th>
+                        <td>{initialOrder.shippingMethod}</td>
+                    </tr>
+                </tbody>
+            </table>
             <div className="center">
-                <button className='btn btn-primary' disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+                <button className='btn btn-primary' disabled={!props.order.cart.reduce((n, { quantity }) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
             </div>
         </div>
     )

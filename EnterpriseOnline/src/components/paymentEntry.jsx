@@ -27,12 +27,13 @@ const PaymentEntry = (props) => {
         let total_cost = 0
 
         props.order.cart.forEach((product) => {
-            const matchingProduct = props.products.find((elem) => elem.id === product.id);
+            console.log(product)
+            const matchingProduct = props.products.find((elem) => elem['_id'] === product['_id']);
 
             if (matchingProduct) {
                 total_cost += matchingProduct.price * product.quantity;
             } else {
-                console.warn(`Product with id ${product.id} not found.`);
+                console.warn(`Product with id ${product['_id']} not found.`);
             }
         });
 
@@ -55,7 +56,7 @@ const PaymentEntry = (props) => {
                 </thead>
                 <tbody>
                     {props.order.cart.map((product, index) => {
-                    const productData = props.products.find((elem) => elem.id === product.id);
+                    const productData = props.products.find((elem) => elem['_id'] === product['_id']);
 
                     if (productData) {
                         return (

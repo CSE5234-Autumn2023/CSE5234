@@ -16,35 +16,25 @@ function AboutUs() {
                 <div className="row">
                     <div className="col">
                         <div className="center">
-                            <img src={require("../data/AboutUsPhotos/Nick.jpg")} alt="Nick Pic" height="240" width="200"/>
+                            <img src={require("../data/AboutUsPhotos/Nick.jpg")} alt="Nick Pic" height="240" width="200" />
                             <h4>Nicolas Ashbaugh</h4>
                             <p>CEO</p>
                         </div>
-                        <p>Nick is a Senior at OSU that studies Computer Science & Engineering</p>
-                        <p>He brings 21 years of life experience to the team as well as some professional coding experience.</p>
+                        <div className='center'>
+                            <p>Nick is a Senior at OSU that studies Computer Science & Engineering</p>
+                            <p>He brings 21 years of life experience to the team as well as some professional coding experience.</p>
+                        </div>
                     </div>
                     <div className="col">
                         <div className="center">
-                            <img src={require("../data/AboutUsPhotos/Paul.jpg")} alt="Paul Pic" height="240" width="200"/>
+                            <img src={require("../data/AboutUsPhotos/Paul.jpg")} alt="Paul Pic" height="240" width="200" />
                             <h4>Paul Koenig</h4>
                             <p>CIO</p>
                         </div>
-                        <div>
+                        <div className='center'>
                             <p>Paul is a Senior at OSU that studies Computer Science & Engineering</p>
                             <p>He brings a great spirit to the team and occasionally codes I guess.</p>
                         </div>
-                    </div>
-                    <div className="col">
-                        <div className="center">
-                            <img src={require("../data/AboutUsPhotos/Jason.jpg")} alt="Jason Pic" height="240" width="200"/>
-                            <h4>Jason Weible</h4>
-                            <p>CFO</p>
-                        </div>
-                        <div>
-                            <p>Jason is a 2nd year PhD student in Computer Science & Engineering</p>
-                            <p>He brings the memes.</p>
-                        </div>
-                        <p></p>
                     </div>
                 </div>
             </div>

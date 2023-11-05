@@ -5,11 +5,9 @@ const BSON = require('bson');
 const db = require("../db/conn");
 
 
-// GET REQUESTS //
-
 
 router.get('/inventory', async (req, res) => {
-    let db_connect = db.getDb("EnterpriseOnlineInventoryDB");
+    let db_connect = db.getDb("mockProducts");
     try {
         var records = await db_connect
             .collection("EnterpriseOnlineInventoryDB")
@@ -24,7 +22,7 @@ router.get('/inventory', async (req, res) => {
 router.get('/inventory/items', async (req, res) => {
     let productSearching = req.query.name;
 
-    let db_connect = db.getDb("EnterpriseOnlineInventoryDB");
+    let db_connect = db.getDb("mockProducts");
     try {
         var records = await db_connect
             .collection("EnterpriseOnlineInventoryDB")
@@ -42,7 +40,7 @@ router.get('/inventory/items/:id', async (req, res) => {
     const serializedQ = BSON.serialize(q);
     const deserializedQ = BSON.deserialize(serializedQ);
 
-    let db_connect = db.getDb("EnterpriseOnlineInventoryDB");
+    let db_connect = db.getDb("mockProducts");
     try {
         var records = await db_connect
             .collection("EnterpriseOnlineInventoryDB")
@@ -55,14 +53,31 @@ router.get('/inventory/items/:id', async (req, res) => {
 });
 
 
-router.post('/postOrder', (req, res) => {
+router.post('/inventory/place-order', (req, res) => {
 
-    let db_connect = db.getDb("EnterpriseOnlineInventoryDB");
+    let db_connect = db.getDb("mockProducts");
     try {
-        db_connect.collection("EnterpriseOnlineSalesDB").insertOne(req.body, function (err, res) {
-            if (err) throw err;
-            db.close();
+        req.body.map(async order_item => {
+
+            var q = { _id: new ObjectId(order_item['_id']) };
+            const serializedQ = BSON.serialize(q);
+            const deserializedQ = BSON.deserialize(serializedQ);
+
+            var record = await db_connect
+                .collection("EnterpriseOnlineInventoryDB")
+                .find(deserializedQ)
+                .toArray();
+
+            console.log(record[0])
+            console.log(order_item)
+
+            var myquery = {  _id: new ObjectId(order_item['_id']) };
+            var newvalues = { $set: { quantity: record[0]['quantity'] - order_item['quantity'] } };
+            await db_connect.collection("EnterpriseOnlineInventoryDB").updateOne(myquery, newvalues, function (err, res) {
+                if (err) throw err;
+            });
         });
+        db.close();
         res.json("Order placed successfully!");
     } catch (e) {
         console.log("An error occurred pulling the records. " + e);

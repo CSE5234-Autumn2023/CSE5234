@@ -38,6 +38,7 @@ function Product(props) {
             .get(`/inventory-management/inventory/items/${id}`)
             .then((response) => {
                 const inventoryData = response.data;
+                console.log(inventoryData)
                 if (inventoryData && inventoryData.quantity !== undefined) {
                     setInventoryQuantity(inventoryData.quantity);
                 } else {

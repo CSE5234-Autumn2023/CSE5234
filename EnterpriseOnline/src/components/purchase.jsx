@@ -15,13 +15,13 @@ const Purchase = (props) => {
                                 ?
                                 <div className="row">
                                     <div className="col-md-4 product">
-                                        <Product product={product} index={index} order={props.order} setOrder={props.setOrder} />
+                                        <Product product={product} index={product['_id']} order={props.order} setOrder={props.setOrder} />
                                     </div>
                                     {
                                         props.products !== index + 1
                                         ?
                                         <div className="col-md-4 product">
-                                            <Product product={props.products[index + 1]} index={index + 1} order={props.order} setOrder={props.setOrder} />
+                                            <Product product={props.products[index + 1]} index={props.products[index + 1]['_id']} order={props.order} setOrder={props.setOrder} />
                                         </div>
                                         :
                                         <></>
@@ -30,7 +30,7 @@ const Purchase = (props) => {
                                         props.products !== index + 2
                                         ?
                                         <div className="col-md-4 product">
-                                            <Product product={props.products[index + 2]} index={index + 2} order={props.order} setOrder={props.setOrder} />
+                                            <Product product={props.products[index + 2]} index={props.products[index + 2]['_id']} order={props.order} setOrder={props.setOrder} />
                                         </div>
                                         :
                                         <></>
