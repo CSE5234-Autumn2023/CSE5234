@@ -15,3 +15,27 @@ hr {
     margin: 40px 0px 30px;
     text-align: center;
 }
+
+.equal-width-table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.equal-width-table th,
+.equal-width-table td {
+  width: 50%;
+  text-align: center;
+  padding: 8px;
+}
+
+.equal-width-table-three {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.equal-width-table-three th,
+.equal-width-table-three td {
+  width: 33%;
+  text-align: center;
+  padding: 8px;
+}
