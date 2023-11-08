@@ -9,7 +9,6 @@ router.post('/order', async (req, res) => {
     try {
         db_connect.collection("EnterpriseOnlineSalesDB").insertOne(req.body, function (err, res) {
             if (err) throw err;
-            db.close();
         });
         res.json("Updated Inventory!");
     } catch (e) {
