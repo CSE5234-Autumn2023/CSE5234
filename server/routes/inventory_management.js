@@ -68,16 +68,12 @@ router.post('/inventory/place-order', (req, res) => {
                 .find(deserializedQ)
                 .toArray();
 
-            console.log(record[0])
-            console.log(order_item)
-
             var myquery = {  _id: new ObjectId(order_item['_id']) };
             var newvalues = { $set: { quantity: record[0]['quantity'] - order_item['quantity'] } };
             await db_connect.collection("EnterpriseOnlineInventoryDB").updateOne(myquery, newvalues, function (err, res) {
                 if (err) throw err;
             });
         });
-        db.close();
         res.json("Order placed successfully!");
     } catch (e) {
         console.log("An error occurred pulling the records. " + e);
