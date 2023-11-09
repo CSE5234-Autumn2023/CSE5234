@@ -27,7 +27,6 @@ const PaymentEntry = (props) => {
         let total_cost = 0
 
         props.order.cart.forEach((product) => {
-            console.log(product)
             const matchingProduct = props.products.find((elem) => elem['_id'] === product['_id']);
 
             if (matchingProduct) {
