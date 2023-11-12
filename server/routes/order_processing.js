@@ -8,10 +8,10 @@ router.post('/order', async (req, res) => {
         businessEntityName: 'EnterpriseOnline',
         businessEntityAccountNumber: 10002,
         customerPaymentInfo: {
-            customerName: req.customer_name,
-            creditCardNumber: req.credit_card_number,
-            expirationDate: req.expir_date,
-            cvv: req.cvv
+            customerName: req.body.customer_name,
+            creditCardNumber: req.body.credit_card_number,
+            expirationDate: req.body.expir_date,
+            cvv: req.body.cvv
         }
     }
     postPayment(paymentData);

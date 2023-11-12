@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
-
 const { v4: uuidv4 } = require('uuid');
 
 router.post('/credit-card-processing/payment', async (req, res) => {
@@ -12,7 +10,6 @@ router.post('/credit-card-processing/payment', async (req, res) => {
         status: 'Payment Successful!',
         confirmationNumber: confirmationNumber
     });
-    console.log(res);
 });
 
 module.exports = router;
