@@ -27,7 +27,7 @@ router.post('/order', async (req, res) => {
 });
 
 const postPayment = (paymentData) => {
-    axios.post('/payment-processing/credit-card-processing/payment', paymentData)
+    axios.post('http://127.0.0.1:5000/payment-processing/credit-card-processing/payment', paymentData)
         .then((response) => {
             console.log(response.data);
         })

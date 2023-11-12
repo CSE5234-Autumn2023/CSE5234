@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const inventoryRoutes = require('./routes/inventory_management');
 const orderRoutes = require('./routes/order_processing');
+const paymentRoutes = require('./routes/payment_processing');
 require("dotenv").config({ path: "./config.env" });
 
 const app = express();
@@ -32,3 +33,4 @@ app.listen(port, async() => {
 
 app.use('/inventory-management', inventoryRoutes);
 app.use('/order-processing', orderRoutes);
+app.use('/payment-processing', paymentRoutes);
