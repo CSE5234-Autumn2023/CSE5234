@@ -57,7 +57,7 @@ function Product(props) {
 
     return (
         <div className="product-details">
-            <div><img className="product-img" src={require(`../data/${props.product.img_url}`)} alt="img_alt_text" /></div>
+            <div className="product-img-div"><img className="product-img" src={require(`../data/${props.product.img_url}`)} alt="img_alt_text" /></div>
             <div className="product-name"><strong>{props.product.name}</strong></div>
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>

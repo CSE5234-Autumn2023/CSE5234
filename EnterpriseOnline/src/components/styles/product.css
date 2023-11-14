@@ -2,12 +2,6 @@ label {
     display: block;
 }
 
-.description {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
 .product-confirmation {
     color: rgb(2, 156, 2);
     font-weight: bold;
@@ -27,9 +21,13 @@ label {
 }
 
 .product-img {
-    width: 150px;
+    max-width: 150px;
     max-height: 150px; 
     height: auto;
+}
+
+.product-img-div {
+    height: 150px;
     margin: 10px;
 }
 
