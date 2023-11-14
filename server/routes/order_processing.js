@@ -15,6 +15,7 @@ router.post('/order', async (req, res) => {
         }
     }
     postPayment(paymentData);
+    postShipping();
     let db_connect = db.getDb("mockProducts");
     try {
         db_connect.collection("EnterpriseOnlineSalesDB").insertOne(req.body, function (err, res) {
@@ -28,6 +29,16 @@ router.post('/order', async (req, res) => {
 
 const postPayment = (paymentData) => {
     axios.post('http://127.0.0.1:5000/payment-processing/credit-card-processing/payment', paymentData)
+        .then((response) => {
+            console.log(response.data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+const postShipping = () => {
+    axios.post('http://127.0.0.1:5001/produce')
         .then((response) => {
             console.log(response.data);
         })

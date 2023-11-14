@@ -53,7 +53,7 @@ const Header = (props) => {
                 </div>
             </div>
             <div className="header-title">
-                <h1>Enterprise Online</h1>
+                <h1>Basketballs "R" Us</h1>
             </div>
             <div className="d-flex flex-row-reverse">
                 <div className="p-2">

@@ -24,3 +24,10 @@ label {
 .product-details {
     border: 1px solid black;
 }
+
+.product-img {
+    width: 150px;
+    max-height: 150px; 
+    height: auto;
+    margin: 10px;
+}

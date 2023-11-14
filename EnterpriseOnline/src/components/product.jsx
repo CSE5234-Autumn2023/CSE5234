@@ -38,7 +38,6 @@ function Product(props) {
             .get(`/inventory-management/inventory/items/${id}`)
             .then((response) => {
                 const inventoryData = response.data;
-                console.log(inventoryData)
                 if (inventoryData && inventoryData.quantity !== undefined) {
                     setInventoryQuantity(inventoryData.quantity);
                 } else {
@@ -57,6 +56,7 @@ function Product(props) {
 
     return (
         <div className="product-details">
+            <div><img className="product-img" src={require( `../data/${props.product.img_url}`)} alt="img_alt_text"/></div>
             <div className="product-name"><strong>{props.product.name}</strong></div>
             <div className="product-description">{props.product.description}</div>
             <div className="product-price">${props.product.price}</div>

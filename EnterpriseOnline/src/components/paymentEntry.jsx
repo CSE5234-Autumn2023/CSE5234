@@ -60,7 +60,7 @@ const PaymentEntry = (props) => {
                     if (productData) {
                         return (
                         <tr key={index}>
-                            <td>{productData.description}</td>
+                            <td>{productData.name}</td>
                             <td>{product.quantity}</td>
                             <td>${productData.price * product.quantity}</td>
                         </tr>

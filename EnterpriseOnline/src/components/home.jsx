@@ -20,7 +20,7 @@ function Home() {
                     </div>
                     <div className="col">
                         <div className="center">
-                            <img src={require("../data/product1.jpg")} alt="Product1" height="240" width="200"/>
+                            <img src={require("../data/wilson_evolution.jpg")} alt="Product1" height="240" width="200"/>
                             <h4>Our Products</h4>
                         </div>
                         <div>

@@ -6,7 +6,7 @@ const Purchase = (props) => {
 
     return (
         <div className="products-page">
-            <div className="product-list offset-md-2 col-md-8">
+            <div className="product-list offset-md-1 col-md-10">
                 {
                     props.products.map((product, index) => {
 
