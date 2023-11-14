@@ -19,6 +19,7 @@ label {
 
 .product-quantity {
     font-size: small;
+    margin: 8px;
 }
 
 .product-details {
@@ -30,4 +31,23 @@ label {
     max-height: 150px; 
     height: auto;
     margin: 10px;
+}
+
+.increment-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-summary-quantity-value {
+    margin: 0px 5px;
+}
+
+.subtract-btn, .add-btn {
+    margin: 0px 5px;
+}
+
+.product-price {
+    margin: 5px;
+    font-size: large;
 }
