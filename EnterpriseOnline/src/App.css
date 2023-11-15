@@ -13,3 +13,11 @@
 h1 {
   text-align: center;
 }
+
+.form-control:focus, .form-control:active,
+.form-control option:focus, .form-control option:active {
+  background-color: white !important;
+  color: #E47041 !important;
+  border-color: #E47041 !important;
+  box-shadow: 0 0 0 0.2rem rgba(228, 112, 65, 0.25) !important;
+}

@@ -163,11 +163,34 @@ const PaymentEntry = (props) => {
                 </div>
                 <br></br>
                 <div className="text-center">
-                    <button type="submit" disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-primary">Set up shipping</button>
+                    <button 
+                        type="submit" 
+                        disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} 
+                        style={{ 
+                            backgroundColor: !props.order.cart.reduce((n, {quantity}) => n + quantity, 0) ? 'gray' : '#E47041',
+                            color: 'white',
+                            borderColor: 'white',
+                            outline: 'none'
+                        }} 
+                        className='btn btn-primary'
+                    >
+                        Set up shipping
+                    </button>
                 </div>
             </form>
             <div className="text-center">
-                <button onClick={emptyCartClick} disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className="btn btn-secondary">Empty Cart</button>
+                <div className="p-2">
+                    <button 
+                        onClick={emptyCartClick} 
+                        disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} 
+                        style={{ 
+                            backgroundColor: !props.order.cart.reduce((n, {quantity}) => n + quantity, 0) ? 'gray' : '#EF7F4D',
+                        }} 
+                        className='btn btn-secondary'
+                    >
+                        Empty Cart
+                    </button>
+                </div>
             </div>
         </div>
     )

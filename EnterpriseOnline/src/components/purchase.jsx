@@ -34,7 +34,7 @@ const Purchase = (props) => {
                     filter > 0
                         ?
                         productList?.map((product, index) => {
-                            if (tempCart.find(elem => elem._id === product['_id']) == undefined) {
+                            if (tempCart.find(elem => elem._id === product['_id']) === undefined) {
                                 tempCart.push({ _id: product['_id'], quantity: 0 })
                             }
 
@@ -73,7 +73,7 @@ const Purchase = (props) => {
                         :
                         productList?.map((product, index) => {
 
-                            if (tempCart.find(elem => elem._id === product['_id']) == undefined) {
+                            if (tempCart.find(elem => elem._id === product['_id']) === undefined) {
                                 tempCart.push({ _id: product['_id'], quantity: 0 })
                             }
 

@@ -64,6 +64,12 @@ function Product(props) {
             <div className="increment-cart">
                 <button
                     className="btn btn-outline-primary btn-sm subtract-btn"
+                    style={{ 
+                        backgroundColor: '#E47041',
+                        color: 'white',
+                        borderColor: 'white',
+                        outline: 'none'
+                    }} 
                     onClick={() => {
                         let updated_temp_cart = props.tempCart;
                         updated_temp_cart.find(elem => elem._id === props.index).quantity = tempCartQuantity - 1;
@@ -71,7 +77,7 @@ function Product(props) {
 
                         setTempCartQuantity(tempCartQuantity - 1);
                     }}
-                    disabled={tempCartQuantity == 0}
+                    disabled={tempCartQuantity === 0}
                 >
                     -
                 </button>
@@ -82,6 +88,12 @@ function Product(props) {
                 </div>
                 <button
                     className="btn btn-outline-primary btn-sm add-btn"
+                    style={{ 
+                        backgroundColor: '#E47041',
+                        color: 'white',
+                        borderColor: 'white',
+                        outline: 'none'
+                    }} 
                     onClick={() => {
                         let updated_temp_cart = props.tempCart;
                         updated_temp_cart.find(elem => elem._id === props.index).quantity = tempCartQuantity + 1;
@@ -95,7 +107,13 @@ function Product(props) {
             </div>
             <div className="add-to-cart">
                 <button
-                    disabled={tempCartQuantity == 0}
+                    disabled={tempCartQuantity === 0}
+                    style={{ 
+                        backgroundColor: '#E47041',
+                        color: 'white',
+                        borderColor: 'white',
+                        outline: 'none'
+                    }} 
                     onClick={() => {
                         setAddedToCartConfirmation(true);
 

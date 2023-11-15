@@ -44,12 +44,12 @@ const Header = (props) => {
         <div className="header">
             <div className="d-flex flex-row">
                 <div className="p-2">
-                    <button onClick={homePageClick} className='btn btn-light checkout-btn btn-width'>Home</button>
+                    <button onClick={homePageClick} style={{ backgroundColor: '#E47041' }} className='btn btn-light checkout-btn btn-width'>Home</button>
                 </div>
             </div>
             <div className="d-flex flex-row">
                 <div className="p-2">
-                    <button onClick={shopPageClick} className='btn btn-light checkout-btn btn-width'>Shop</button>
+                    <button onClick={shopPageClick} style={{ backgroundColor: '#E47041' }} className='btn btn-light checkout-btn btn-width'>Shop</button>
                 </div>
             </div>
             <div className="header-title">
@@ -57,14 +57,33 @@ const Header = (props) => {
             </div>
             <div className="d-flex flex-row-reverse">
                 <div className="p-2">
-                    <button onClick={emptyCartClick} disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)} className='btn btn-light checkout-btn btn-width'>Empty Cart</button>
+                    <button
+                        onClick={emptyCartClick}
+                        disabled={!props.order.cart.reduce((n, {quantity}) => n + quantity, 0)}
+                        style={{
+                            backgroundColor: props.order.cart.reduce((n, {quantity}) => n + quantity, 0) ? '#E47041' : 'gray',
+                        }}
+                        className='btn btn-light checkout-btn btn-width'
+                    >
+                        Empty Cart
+                    </button>
                 </div>
             </div>
             <div className="d-flex flex-row-reverse">
                 <div className="p-2">
-                    <button onClick={checkoutPageClick} disabled={buttonDisabled()} className='btn btn-light checkout-btn btn-width'>Checkout</button>
+                    <button 
+                        onClick={checkoutPageClick} 
+                        disabled={buttonDisabled()} 
+                        style={{ 
+                            backgroundColor: buttonDisabled() ? 'gray' : '#E47041',
+                        }} 
+                        className='btn btn-light checkout-btn btn-width'
+                    >
+                        Checkout
+                    </button>
                 </div>
             </div>
+                
         </div >
     )
 }

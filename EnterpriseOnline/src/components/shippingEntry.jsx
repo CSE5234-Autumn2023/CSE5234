@@ -1,5 +1,5 @@
-import React, {useState} from "react"
-import {useLocation, useNavigate} from 'react-router-dom'
+import React from "react"
+import {useNavigate} from 'react-router-dom'
 
 const ShippingEntry = (props) => {
 
@@ -139,7 +139,18 @@ const ShippingEntry = (props) => {
                 </div>
                 <br></br>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-primary">Set up shipping</button>
+                    <button 
+                        type="submit"
+                        style={{ 
+                            backgroundColor: !props.order.cart.reduce((n, {quantity}) => n + quantity, 0) ? 'gray' : '#E47041',
+                            color: 'white',
+                            borderColor: 'white',
+                            outline: 'none'
+                        }} 
+                        className='btn btn-primary'
+                    >
+                        Review Order
+                    </button>
                 </div>
             </form>
         </div>

@@ -15,7 +15,17 @@ const ViewConfirmation = () => {
             <h1 className="confirmation-title">Confirm Purchase</h1>
             <div className="center confirmation-message">
                 <p>Thank you for placing your order. Your confirmation code is 00000001</p>
-                <button className="btn btn-primary confirmation-button" onClick={handleSubmit}>
+                <button 
+                    type="submit"
+                    style={{ 
+                        backgroundColor: '#E47041',
+                        color: 'white',
+                        borderColor: 'white',
+                        outline: 'none'
+                    }} 
+                    className='btn btn-primary confirmation-button'
+                    onClick={handleSubmit}
+                >
                     Go Back to Products Page
                 </button>
             </div>

@@ -192,7 +192,20 @@ const ViewOrder = (props) => {
                 </tbody>
             </table>
             <div className="center">
-                <button className='btn btn-primary' disabled={!props.order.cart.reduce((n, { quantity }) => n + quantity, 0)} onClick={handleSubmit}>Place Order</button>
+                <button 
+                    type="submit"
+                    disabled={!props.order.cart.reduce((n, { quantity }) => n + quantity, 0)}
+                    style={{ 
+                        backgroundColor: !props.order.cart.reduce((n, {quantity}) => n + quantity, 0) ? 'gray' : '#E47041',
+                        color: 'white',
+                        borderColor: 'white',
+                        outline: 'none'
+                    }} 
+                    className='btn btn-primary'
+                    onClick={handleSubmit}
+                >
+                    Place Order
+                </button>
             </div>
         </div>
     )
