@@ -5,3 +5,46 @@
 .message-to-customers {
     margin-top: 100px;
 }
+
+.background-home-wallpaper {
+    margin-bottom: 80px;
+}
+
+.background-home-image {
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -o-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: blur(0px);
+}
+
+.center-image-text {
+    color: rgb(183, 94, 0);
+    font-size: 80px;
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  }
+
+.center-image-subtext {
+    font-size: 40px;
+    color: rgb(183, 94, 0);
+    background-color: rgb(32, 32, 32);
+    border-color: rgb(32, 32, 32);
+  }
+
+.center-image-subtext:hover {
+    background-color: rgb(32, 32, 32);
+    border-color: rgb(114, 114, 114);
+    color: rgb(183, 94, 0);
+}
+
+.our-section-home {
+    margin-top: 120px;
+}
+
+.our-section-home-image {
+    margin-bottom: 30px;
+}

@@ -21,3 +21,7 @@ h1 {
   border-color: #E47041 !important;
   box-shadow: 0 0 0 0.2rem rgba(228, 112, 65, 0.25) !important;
 }
+
+main {
+  min-height: 100vh;
+}

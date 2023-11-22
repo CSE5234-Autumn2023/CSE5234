@@ -31,17 +31,17 @@ function App() {
     axios
       .get('/inventory-management/inventory')
       .then((response) => {
-          const data = response.data;
-          setProducts(data);
-    });
+        const data = response.data;
+        setProducts(data);
+      });
   }, [])
 
 
   return (
     <div className="App">
       <Router>
+        <Header order={order} setOrder={setOrder} products={products} />
         <div className="content">
-          <Header order={order} setOrder={setOrder} products={products} />
           <Routes>
             <Route path="/purchase" element={<Purchase order={order} setOrder={setOrder} products={products} />} />
             <Route path="/" element={<Home />} />
@@ -52,8 +52,8 @@ function App() {
             <Route path="/aboutUs" element={<AboutUs order={order} setOrder={setOrder} products={products} />} />
             <Route path="/contactUs" element={<ContactUs order={order} setOrder={setOrder} products={products} />} />
           </Routes>
-          <Footer />
         </div>
+        <Footer />
       </Router>
     </div>
   );

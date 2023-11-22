@@ -15,14 +15,16 @@ function Footer() {
 
     return (
         <div className="footer">
-            <ul className="nav justify-content-center border-bottom pb-3 mb-3">
-                <li className="nav-item">
-                    <a href="#" onClick={aboutUsClick} className="nav-link px-2"style={{ color: 'white' }}>About Us</a>
-                </li>
-                <li className="nav-item">
-                    <a href="#" onClick={contactUsClick} className="nav-link px-2" style={{ color: 'white' }}>Contact Us</a>
-                </li>
-            </ul>
+            <div className="footer-btns">
+                <ul className="nav justify-content-center">
+                    <li className="nav-item">
+                        <a href="#" onClick={aboutUsClick} className="nav-link px-2" style={{ color: 'white' }}>About Us</a>
+                    </li>
+                    <li className="nav-item">
+                        <a href="#" onClick={contactUsClick} className="nav-link px-2" style={{ color: 'white' }}>Contact Us</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     )
 }
