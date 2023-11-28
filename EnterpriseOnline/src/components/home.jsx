@@ -8,10 +8,14 @@ function Home() {
 
     return (
         <div>
-            <div className="center background-home-wallpaper">
+            <div className="center banner-under-header">
+                <p><strong>Shop Christmas Deals Now and Use Code SANTA for 40% Off. Ends 12/25.</strong></p>
+            </div>
+
+            <div className="offset-md-1 col-md-10 center background-home-wallpaper">
                 <img className="background-home-image" src={require("../data/kobe_wallpaper_cropped4.jpg")} width="100%" />
                 <div class="center-image-text">
-                    <strong>Basketballs "R" Us</strong>
+                    <div><strong>Basketballs "R" Us</strong></div>
                     <button
                         className="btn btn-primary center-image-subtext"
                         onClick={() => navigate('/purchase')}
@@ -19,7 +23,6 @@ function Home() {
                         Upgrade Your Game Today
                     </button>
                 </div>
-
             </div>
 
             <div className="offset-md-1 col-md-10 features-deals">

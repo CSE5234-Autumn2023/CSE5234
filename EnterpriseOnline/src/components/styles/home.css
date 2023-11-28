@@ -8,7 +8,14 @@
 }
 
 .background-home-wallpaper {
+    margin-top: 80px;
     margin-bottom: 80px;
+}
+
+.banner-under-header {
+    background-color: rgb(240, 240, 240);
+    padding-top: 10px;
+    border-bottom: 2px solid lightgray;
 }
 
 .background-home-image {
@@ -21,17 +28,17 @@
 
 .center-image-text {
     color: rgb(183, 94, 0);
-    font-size: 80px;
+    font-size: 70px;
     position: absolute;
-    top: 340px;
+    top: 480px;
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   }
 
 .center-image-subtext {
-    font-size: 40px;
-    color: rgb(183, 94, 0);
+    font-size: 30px;
+    color: rgb(253, 227, 199);
     background-color: rgb(32, 32, 32);
     border-color: rgb(32, 32, 32);
     border-radius: 10px;
