@@ -30,7 +30,7 @@ function Home() {
                 <div className='christmas-deals'>
                     <div className='christmas-deals-message center'>
                         <h1 className='christmas-deal-text'>Biggest Deals of the Year</h1>
-                        <h5 className='christmas-deal-text'>Win the holidays with the best gifts of the year.</h5>
+                        <h5 className='christmas-deal-text'>Score this Christmas with the best gifts around.</h5>
                         <button
                             className="btn btn-primary christmas-deal-btn"
                             onClick={() => navigate('/purchase')}
@@ -71,6 +71,7 @@ function Home() {
                     </div>
                 </div>
             </div>
+
             <div className="offset-md-3 col-md-6 center message-to-customers">
                 <h1>Message to our Customers</h1>
                 <h5 className='first-customer-message'>

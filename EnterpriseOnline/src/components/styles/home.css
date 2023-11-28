@@ -3,7 +3,7 @@
 }
 
 .message-to-customers {
-    margin-top: 150px;
+    margin-top: 100px;
     padding: 20px;
 }
 
@@ -14,7 +14,7 @@
 
 .banner-under-header {
     background-color: rgb(240, 240, 240);
-    padding-top: 10px;
+    padding-top: 15px;
     border-bottom: 2px solid lightgray;
 }
 
@@ -75,7 +75,7 @@
 }
 
 .who-we-are-cols {
-    margin: 40px;
+    margin: 40px 10px 0px;
 }
 
 .christmas-deals-image {
