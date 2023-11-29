@@ -9,7 +9,7 @@ function Home() {
     return (
         <div>
             <div className="center banner-under-header">
-                <p><strong>Shop Christmas Deals Now and Use Code SANTA for 40% Off. Ends 12/25.</strong></p>
+                <p><strong>Shop Christmas Deals Now and Use Code SANTA For 40% Off. Ends 12/25.</strong></p>
             </div>
 
             <div className="offset-md-1 col-md-10 center background-home-wallpaper">
@@ -35,7 +35,7 @@ function Home() {
                             className="btn btn-primary christmas-deal-btn"
                             onClick={() => navigate('/purchase')}
                         >
-                            Use Code <strong>SANTA</strong> at Checkout For 40% Off EVERYTHING
+                            Use Code <strong>SANTA</strong> At Checkout For 40% Off EVERYTHING
                         </button>
                     </div>
                     <img className='christmas-deals-image left-deal' src={require("../data/santa-basketball.jpg")} width="25%" />
